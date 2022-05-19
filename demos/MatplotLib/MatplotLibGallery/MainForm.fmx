@@ -1,0 +1,79 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Memo1: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Align = Client
+    Size.Width = 640.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Viewport.Width = 636.000000000000000000
+    Viewport.Height = 476.000000000000000000
+    object Layout1: TLayout
+      Align = Bottom
+      Position.Y = 441.000000000000000000
+      Size.Width = 636.000000000000000000
+      Size.Height = 35.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object btnScatterMasked: TButton
+        Position.X = 8.000000000000000000
+        Position.Y = 7.000000000000000000
+        Size.Width = 97.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'Scatter Masked'
+        OnClick = btnScatterMaskedClick
+      end
+      object btnScatterSymbol: TButton
+        Position.X = 113.000000000000000000
+        Position.Y = 7.000000000000000000
+        Size.Width = 88.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = 'Scatter Symbol'
+        OnClick = btnScatterSymbolClick
+      end
+      object btnInterpolations: TButton
+        Position.X = 209.000000000000000000
+        Position.Y = 7.000000000000000000
+        TabOrder = 2
+        Text = 'Interpolations'
+        OnClick = btnInterpolationsClick
+      end
+    end
+  end
+  object PythonEngine1: TPythonEngine
+    IO = PythonGUIInputOutput1
+    Left = 440
+    Top = 24
+  end
+  object PythonGUIInputOutput1: TPythonGUIInputOutput
+    UnicodeIO = True
+    RawOutput = False
+    Output = Memo1
+    Left = 560
+    Top = 24
+  end
+  object MatplotLib1: TMatplotLib
+    PythonEngine = PythonEngine1
+    Left = 560
+    Top = 80
+  end
+  object NumPy1: TNumPy
+    PythonEngine = PythonEngine1
+    Left = 560
+    Top = 136
+  end
+end

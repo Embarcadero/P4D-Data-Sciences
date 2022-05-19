@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{00276415-2C93-4E35-9555-CFDF0F8E4C56}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ScikitLearnReference\ScikitLearnReference.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ScikitLearnFaceRecognition\ScikitLearnFaceRecognition.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ScikitLearnReference">
+        <MSBuild Projects="ScikitLearnReference\ScikitLearnReference.dproj"/>
+    </Target>
+    <Target Name="ScikitLearnReference:Clean">
+        <MSBuild Projects="ScikitLearnReference\ScikitLearnReference.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ScikitLearnReference:Make">
+        <MSBuild Projects="ScikitLearnReference\ScikitLearnReference.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ScikitLearnFaceRecognition">
+        <MSBuild Projects="ScikitLearnFaceRecognition\ScikitLearnFaceRecognition.dproj"/>
+    </Target>
+    <Target Name="ScikitLearnFaceRecognition:Clean">
+        <MSBuild Projects="ScikitLearnFaceRecognition\ScikitLearnFaceRecognition.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ScikitLearnFaceRecognition:Make">
+        <MSBuild Projects="ScikitLearnFaceRecognition\ScikitLearnFaceRecognition.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ScikitLearnReference;ScikitLearnFaceRecognition"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ScikitLearnReference:Clean;ScikitLearnFaceRecognition:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ScikitLearnReference:Make;ScikitLearnFaceRecognition:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

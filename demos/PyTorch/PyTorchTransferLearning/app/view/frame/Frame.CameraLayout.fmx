@@ -1,0 +1,486 @@
+inherited CameraLayoutFrame: TCameraLayoutFrame
+  Size.Width = 362.000000000000000000
+  Size.Height = 580.000000000000000000
+  inherited ccCameraComp: TCameraComponent
+    OnSampleBufferReady = ccCameraCompSampleBufferReady
+    Left = 264
+    Top = 344
+  end
+  inherited recBackgroud: TRectangle
+    Size.Width = 362.000000000000000000
+    Size.Height = 580.000000000000000000
+    inherited imgCamera: TImage
+      Size.Width = 362.000000000000000000
+      Size.Height = 580.000000000000000000
+      object loTakePhotoActions: TLayout
+        Align = Bottom
+        Position.Y = 386.000000000000000000
+        Size.Width = 362.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object loTakePhotoActionsCenter: TLayout
+          Align = Center
+          Anchors = [akTop, akBottom]
+          Size.Width = 133.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object btnAccept: TSpeedButton
+            Action = actAccept
+            Align = Left
+            Enabled = True
+            ImageIndex = -1
+            Size.Width = 41.000000000000000000
+            Size.Height = 48.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'speedbuttonstyle'
+            object imgAccept: TImage
+              MultiResBitmap.Height = 24
+              MultiResBitmap.Width = 24
+              MultiResBitmap.LoadSize = 2
+              MultiResBitmap = <
+                item
+                  Width = 24
+                  Height = 24
+                  PNG = {
+                    89504E470D0A1A0A0000000D4948445200000018000000180806000000E0773D
+                    F8000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                    009249444154484BED92610A80200C85BD445247D4E3D68F0EA3586F31415384
+                    72D11F3F90B9DEF6D4911A0C1E1142D058865359C8DC7BBF1D007BCB9F6580E1
+                    04F395CC9D733BC2CC523FC3BC4A97399A0D96E6B48034985F7F0BC5566D018A
+                    6DABB1CB9C4043F674E40B4B8586F06EE6B543C4CC2330CC4691EE49E3B23ED2
+                    5B132237BF130FF9C43C4223111BCBE007943A019F67328272F2E00D00000000
+                    49454E44AE426082}
+                  FileName = 
+                    'C:\Users\lucas\Documents\Embarcadero\Studio\Projects\github\lmbe' +
+                    'lo\P4D_AI_ML\demos\PyTorch\PyTorchTransferLearning\app\images\do' +
+                    'ne.png'
+                end>
+              Align = Client
+              HitTest = False
+              Size.Width = 41.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              WrapMode = Center
+            end
+          end
+          object btnDecline: TSpeedButton
+            Action = actDecline
+            Align = Right
+            Enabled = True
+            ImageIndex = -1
+            Position.X = 92.000000000000000000
+            Size.Width = 41.000000000000000000
+            Size.Height = 48.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'speedbuttonstyle'
+            object imgDecline: TImage
+              MultiResBitmap.Height = 24
+              MultiResBitmap.Width = 24
+              MultiResBitmap.LoadSize = 2
+              MultiResBitmap = <
+                item
+                  Width = 24
+                  Height = 24
+                  PNG = {
+                    89504E470D0A1A0A0000000D4948445200000018000000180806000000E0773D
+                    F8000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                    011649444154484BED953D0FC16010C79FBEA4B18A6FE00310B199311B2C7C0E
+                    B3488C7C02A3C56C37588C82D12ADD3174E9ABFFB5479AF0B4150689FE92CBFF
+                    EE72BD7B9E26BD8A9CAF10044101B6364DD38786589675F57DBFCB255214D644
+                    D0A8A128CA06BA5055F54439C7717A9AA61D61EDB048C2CB019EE74D21D52812
+                    024D8B903A6C8B2167CAD9B64DB1300C634B7A070719A0FEC0A150599F405113
+                    CDCAE45353D8EADE9CA0C6F1E6F1FA4CF0AB1E71988AAC5E7A836F916940FC74
+                    325FC66FDCE013F201A9FCCF80166C1EB952FF3DB09AB1F3BC318789E063D3E8
+                    8BC32E1A72EA81745DBBAEBBC703255DD76708ED28FB1AF4AE60D9F5A11DE892
+                    D3C9A0790D437674133A5D0A17DC7602CDF47FC98921C40D21B5C73B486B6937
+                    0000000049454E44AE426082}
+                  FileName = 
+                    'C:\Users\lucas\Documents\Embarcadero\Studio\Projects\github\lmbe' +
+                    'lo\P4D_AI_ML\demos\PyTorch\PyTorchTransferLearning\app\images\tr' +
+                    'ash.png'
+                end>
+              Align = Client
+              HitTest = False
+              Size.Width = 41.000000000000000000
+              Size.Height = 48.000000000000000000
+              Size.PlatformDefault = False
+              WrapMode = Center
+            end
+          end
+        end
+      end
+      object loBottom: TLayout
+        Align = Bottom
+        Margins.Bottom = 15.000000000000000000
+        Position.Y = 494.000000000000000000
+        Size.Width = 362.000000000000000000
+        Size.Height = 71.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object btnSwitch: TSpeedButton
+          Action = actSwitch
+          Anchors = [akRight, akBottom]
+          Enabled = True
+          StyledSettings = [Family, Size, Style]
+          ImageIndex = -1
+          Position.X = 306.000000000000000000
+          Position.Y = 15.000000000000000000
+          Size.Width = 46.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'speedbuttonstyle'
+          object imgSwitch: TImage
+            MultiResBitmap.Height = 32
+            MultiResBitmap.Width = 32
+            MultiResBitmap.LoadSize = 2
+            MultiResBitmap = <
+              item
+                Width = 32
+                Height = 32
+                PNG = {
+                  89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+                  F4000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                  034C494441545847ED964B48546114C79D19679C5733598A3D882C2A952482A4
+                  07F42021AC8D04EDDA05D1A2459110122DDAB668112D0C4A25285CB4C81E8BA4
+                  2798A4112EA4282B1022AD414DD19971D27166FA9D3B6786644AEF1DA236FEE1
+                  70BEEF7FCE3DE77FBFEFBB8F8245FC6FD8D49B463299ACC09A1D0E8747290389
+                  442266B7DB8F631F9432054B0252A99483465D369B6D804677953680A8C3C4D7
+                  236C37F184D20B625E011474639B28E894B934C18ED2640B02A24692823CFFEC
+                  EC6C1F7C5B461C5C9C6B3F623F8C242BA051D5CCCCCC50381C8EC462B131B1E9
+                  E9E9AFF07B352507C4F691F32D932FD752631021959A621E2C752BD6A2D3BC40
+                  63DB4275ECEA7F87152C5D9F8EF302D7A7B4C6CA34938BF904CC0BEECEC592EF
+                  C2F6C85869CBC84B004D8FB0B75FA6A6A61EB1E7F7B121B87A0D5B82650172D7
+                  131313B75C2E57A3CFE70BBADDEE658C1BA2D1681BB11A4D330DCB0258EED381
+                  40E03A7B7B034BCA3EF3D8DDF47ABD2DC41A34CD34F211B091A6DD3ACD02EEA5
+                  C4746A1A9605D0489EEB2A9D6601574DECB34E4D231F019758F253ECF77EA5E4
+                  5CD47220CF106B52CA342C0BA0F90BD96BDE74F7E2F1F87BEC5D241279C0813C
+                  4BEC99A699866501021AB57A3C9E0D7C132E60E7FD7E7F39DC550D5BC21C01DC
+                  999DE5DCAED37941C361EC36D68E8D28FD4750DB46ED1DE29532901540A09277
+                  762F5FB43B24FAA0C6E0D6A6A3F9831AE5B8EF5890ED6A971ED4AF3082C05003
+                  1120D85F5858D8CE413AC71D4DCA4AB0CF8F79C90CC2C78C6C8BE0663C5CBB1A
+                  1107A8F91A1FA4EE4544D4C357C285330276D2B88361313E259C00BE14273177
+                  9AB1061ACA7F40CFAF5B04273DC7F107E17B32A49B1518405933E3A506B900C8
+                  B37C8065A5E9718D5E9FA4A7D2694094137CCEB28FE39B48AE830B6A780E889D
+                  6479BBA4A0527F04394BA416352FCB4F0AFE29F3ECD9CAF92523584BE363A83C
+                  343A3A5A5C5656D6CF52BD621B060887B0612C4AA12B7093C4EA303933F27694
+                  C2F2ED5F438D55D8B65028B4B5A4A464DCE9743E24BF85DC4EE259E408C8808B
+                  ED5835C31AFC66FC3A7C295642F3D2A2A2A2E59AD7887BC2D7B0932FE3084D86
+                  7837C8AFDB20E3B7C47AF16FB0A4E4FF15503CC01674639D08F02BFDEF40D313
+                  AC4207DEABD4221691270A0A7E0221281070FBBB90170000000049454E44AE42
+                  6082}
+                FileName = 
+                  'C:\Users\lucas\Documents\Embarcadero\Studio\Projects\github\lmbe' +
+                  'lo\P4D_AI_ML\demos\PyTorch\PyTorchTransferLearning\app\images\sw' +
+                  'itch_camera.png'
+              end>
+            Align = Bottom
+            Anchors = [akRight, akBottom]
+            HitTest = False
+            Position.Y = 18.000000000000000000
+            Size.Width = 46.000000000000000000
+            Size.Height = 30.000000000000000000
+            Size.PlatformDefault = False
+            WrapMode = Center
+          end
+        end
+        object btnTakePhoto: TSpeedButton
+          Action = actTakePhoto
+          Align = Center
+          Enabled = True
+          ImageIndex = -1
+          Size.Width = 55.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'speedbuttonstyle'
+          object crTakePhotoExternal: TCircle
+            Align = Client
+            HitTest = False
+            Size.Width = 55.000000000000000000
+            Size.Height = 48.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Color = claWhite
+            Stroke.Thickness = 3.000000000000000000
+            object crTakePhotoInternal: TCircle
+              Align = Client
+              Fill.Color = claWhite
+              HitTest = False
+              Margins.Left = 7.000000000000000000
+              Margins.Top = 7.000000000000000000
+              Margins.Right = 7.000000000000000000
+              Margins.Bottom = 7.000000000000000000
+              Size.Width = 41.000000000000000000
+              Size.Height = 34.000000000000000000
+              Size.PlatformDefault = False
+              Stroke.Kind = None
+            end
+          end
+        end
+        object imgLast: TImage
+          MultiResBitmap = <
+            item
+            end>
+          Anchors = [akLeft, akBottom]
+          Position.X = 13.000000000000000000
+          Position.Y = 13.000000000000000000
+          Size.Width = 48.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+        end
+      end
+      object loTop: TLayout
+        Align = Top
+        Size.Width = 362.000000000000000000
+        Size.Height = 57.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        object imgStopwatch: TImage
+          MultiResBitmap.Height = 32
+          MultiResBitmap.Width = 32
+          MultiResBitmap.LoadSize = 2
+          MultiResBitmap = <
+            item
+              Width = 32
+              Height = 32
+              PNG = {
+                89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+                F4000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                026A494441545847ED964B6B13511886D36C9262C0C655292EDCB5FE0317D652
+                DC8AEEDC57A420BA557121F87BDC78D9794371E765AB4D6B0B22D95B9248C8DD
+                E73DBE533ACE249D492908E681AFE79CEFF29ECB4CCEB430E3BF67CE6D2E46E0
+                6E8C3970373345B73332C1C95787C3E1C6603078DAEBF56ACD66B3D568347E75
+                BBDDEFF89E10BB45CE69A72B7F11DF6D0FA7079179EC0182FBD8445AAD5693E6
+                11768E456EC947ED1D4BE587E2A57EBFFF4942829DBEC077135BC64EC970AFC8
+                47ECE59FACD1A85EAFF7D57A118B96CB07A24B1CEF0F0BD5682E3A34166A56C9
+                DD568D607CC1A17C50381FED9C9DBDA55970E800C5848707E0AA62EF427034FA
+                8C951DCA0E0BD0338F8E3031B9505C78180377353A09B41EDA9D0D1563D10B37
+                F6D81D4F5D8060E235A748AB6AF7D150B8A12ABD7076A5A21CE1612A68BC520E
+                9A37EC8A917A13927F552D37EBE3E0380691069A5782230B879EDDB25D09885D
+                568E50DFEE04845794234DBB8EC69789A8D89500C13DE7487CD7EE04842BCA91
+                A65D314EFC63C4DC610E1EC53038B270428FA066578CD41328168B5FDD5D759B
+                809C37EEC6FA295CD21F72BE84D15FA42E80E37AAE96855F0F8E319017F03015
+                4E276890163433C1C4D576BBFD53478740D8C13450BB2E0D6BA5DEA663A138BA
+                8AF53E64BFC58C6AA8DD91065A77EDCE0E75653E461F2500FAB0645E04139EA1
+                F6BD0A693FD0E4FF1809840E7F8E7718AF39341672D6C9FDA61AD54AC3A1E990
+                807711F0DDBE89FF3CAD2E998AFB9BC45ED3065473ECC923D02B23763F7A3127
+                A11C72EF6125974F24D7FFF1E82F60D764DA75A7D3392B7FA954AAF33BDFE2A7
+                F6CCB61F0A66FCFB140ABF01C4A2E91267582E040000000049454E44AE426082}
+              FileName = 
+                'C:\Users\lucas\Documents\Embarcadero\Studio\Projects\github\lmbe' +
+                'lo\P4D_AI_ML\demos\PyTorch\PyTorchTransferLearning\app\images\st' +
+                'opwatch.png'
+            end>
+          Align = Left
+          Size.Width = 50.000000000000000000
+          Size.Height = 57.000000000000000000
+          Size.PlatformDefault = False
+          WrapMode = Center
+          OnClick = imgStopwatchClick
+        end
+        object imgMenu: TImage
+          MultiResBitmap.Height = 32
+          MultiResBitmap.Width = 32
+          MultiResBitmap.LoadSize = 2
+          MultiResBitmap = <
+            item
+              Width = 32
+              Height = 32
+              PNG = {
+                89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+                F4000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                0257494441545847ED963D6F13411086EDB8B3A14C1A5720F15125FC00284154
+                842005E5C72001F1AFE0B30DA4429450C21F8002873450D84DE8F047639FCD33
+                E37757B777E716B9B8473ADDCCBC33E3F3EEDEDE366A6A8A6459F67A3018CC97
+                62369BF5178BC5B66407FF603C1E8F94B2349BD8BE64077F87DA33A52CAD27BD
+                5F495E4FFEC703347B24D9A1D13B49116227921DAB9114B1DE92235BBA47BADD
+                6E4B66A4D96C26B12D90192194E4146B8CAADEA546FF9BD203CCE7F33399CE70
+                385C307A3FE53A0C6F926310EBCB74A839B75AB90EBD931CA3A97B8446B6E0EE
+                8421B41F6778BF9B1D20D6E2BA4BCE65F923ECCF5C9927087AED12BB613639A6
+                7DA1D71FF36B3686AA3570C07C3D0EAF15BEAD8167F9F945BF4AFC09F14BE663
+                8FD17BF8BF3C01C869117F4EECBAF9D819F67BF23E78C23AF23B5C80E2FB921D
+                369DB79222C4DE4876AC4652643299FC951C29BD869D4EC7FF551E9EDA577B20
+                FCF33CC4929C628DD16EB74BB1CDDB88A6D3E9486684D14B86CEE65C66845852
+                474DA94F55EFAA45B84FF111431A16611FFB38BF08895D21C716A10FA9FD3876
+                8F9CDF9E00E8B6089F12BF693E76867E82FFD1136A3685AA35B0C3ED36F3153E
+                46E7CCDB37B30336BF5CF7C8F1D711DB36A24F5CC9C788F82D6ED7649BF6955E
+                17E6AF257F8C3238C5643CD4AE64874DA7273942EC58B243CD9ED54A76E8FD43
+                F27A945BE450B2837FBA0A279C4A76F00F57E114C991CDDB8838C524F368F0E0
+                498CE14D4E3A06A1E2FC97FA54F52EC15CBECC9F8C6DDE689E1CCB093FB40FCB
+                2A63F59121E7816407DF8EE57DA58463F90BC93535A2D1F807A27368BC65790E
+                520000000049454E44AE426082}
+              FileName = 
+                'C:\Users\lucas\Documents\Embarcadero\Studio\Projects\github\lmbe' +
+                'lo\P4D_AI_ML\demos\PyTorch\PyTorchTransferLearning\app\images\ic' +
+                'ons8-squared-menu-32-modified.png'
+            end>
+          Align = Right
+          Position.X = 312.000000000000000000
+          Size.Width = 50.000000000000000000
+          Size.Height = 57.000000000000000000
+          Size.PlatformDefault = False
+          WrapMode = Center
+          OnClick = imgMenuClick
+        end
+        object loThumbs: TLayout
+          Align = Center
+          Size.Width = 50.000000000000000000
+          Size.Height = 57.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object imgThumbs: TImage
+            MultiResBitmap = <
+              item
+              end>
+            Align = Contents
+            Size.Width = 50.000000000000000000
+            Size.Height = 57.000000000000000000
+            Size.PlatformDefault = False
+            WrapMode = Center
+          end
+          object lbCounter: TLabel
+            Align = MostTop
+            StyledSettings = []
+            Size.Width = 50.000000000000000000
+            Size.Height = 18.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Fira Code'
+            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claWhite
+            TextSettings.HorzAlign = Trailing
+            Text = '000'
+            TabOrder = 1
+          end
+        end
+      end
+      object loSaving: TLayout
+        Align = Bottom
+        Position.Y = 434.000000000000000000
+        Size.Width = 362.000000000000000000
+        Size.Height = 60.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        object imgSave: TImage
+          MultiResBitmap = <
+            item
+            end>
+          Align = Right
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 306.000000000000000000
+          Position.Y = 5.000000000000000000
+          Size.Width = 46.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          object aiSave: TAniIndicator
+            Align = Client
+            Margins.Left = 10.000000000000000000
+            Margins.Top = 10.000000000000000000
+            Margins.Right = 10.000000000000000000
+            Margins.Bottom = 10.000000000000000000
+            Size.Width = 31.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            Visible = False
+          end
+        end
+      end
+      object lbStopwatch: TListBox
+        Position.X = 5.000000000000000000
+        Position.Y = 57.000000000000000000
+        Size.Width = 153.000000000000000000
+        Size.Height = 104.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'listboxstyle'
+        TabOrder = 4
+        ShowScrollBars = False
+        ShowSizeGrip = True
+        DisableFocusEffect = True
+        DefaultItemStyles.ItemStyle = ''
+        DefaultItemStyles.GroupHeaderStyle = 'listboxgroupheader'
+        DefaultItemStyles.GroupFooterStyle = ''
+        Viewport.Width = 149.000000000000000000
+        Viewport.Height = 100.000000000000000000
+        object lbi10s: TListBoxItem
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = claWhite
+          StyledSettings = [Family, Style, Other]
+          Size.Width = 149.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'listboxitemdetaillabel'
+          TabOrder = 0
+          Text = '3s'
+        end
+        object lbi3s: TListBoxItem
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = claWhite
+          StyledSettings = [Family, Style, Other]
+          Position.Y = 50.000000000000000000
+          Size.Width = 149.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'listboxitemdetaillabel'
+          TabOrder = 1
+          Text = '10s'
+        end
+        object ShadowEffect1: TShadowEffect
+          Distance = 3.000000000000000000
+          Direction = 45.000000000000000000
+          Softness = 0.300000011920929000
+          Opacity = 0.600000023841857900
+          ShadowColor = claBlack
+        end
+      end
+      object lbOptions: TListBox
+        Anchors = [akTop, akRight]
+        Position.X = 205.000000000000000000
+        Position.Y = 59.000000000000000000
+        Size.Width = 153.000000000000000000
+        Size.Height = 52.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 5
+        DisableFocusEffect = True
+        DefaultItemStyles.ItemStyle = ''
+        DefaultItemStyles.GroupHeaderStyle = ''
+        DefaultItemStyles.GroupFooterStyle = ''
+        Viewport.Width = 149.000000000000000000
+        Viewport.Height = 48.000000000000000000
+        object lbiClear: TListBoxItem
+          TextSettings.FontColor = claWhite
+          StyledSettings = [Family, Size, Style, Other]
+          Size.Width = 149.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'listboxitemdetaillabel'
+          TabOrder = 0
+          Text = 'Clear'
+          OnClick = lbiClearClick
+        end
+      end
+    end
+  end
+  object actList: TActionList
+    OnUpdate = actListUpdate
+    Left = 264
+    Top = 296
+    object actSwitch: TAction
+      Text = ' '
+      OnExecute = actSwitchExecute
+    end
+    object actTakePhoto: TAction
+      Text = ' '
+      OnExecute = actTakePhotoExecute
+    end
+    object actAccept: TAction
+      Text = ' '
+      OnExecute = actAcceptExecute
+    end
+    object actDecline: TAction
+      Text = ' '
+      OnExecute = actDeclineExecute
+    end
+  end
+end

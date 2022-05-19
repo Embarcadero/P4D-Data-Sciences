@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{401F15BF-2868-4DCF-8C08-558F3BFD30DF}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="app\ThumbsUpDownApp.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="server\ThumbsUpDownServer.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="train\trainmodelproc\ThumbsUpDownTrainModelProc.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="train\trainedmodelproc\ThumbsUpDownTrainedModelProc.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ThumbsUpDownApp">
+        <MSBuild Projects="app\ThumbsUpDownApp.dproj"/>
+    </Target>
+    <Target Name="ThumbsUpDownApp:Clean">
+        <MSBuild Projects="app\ThumbsUpDownApp.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ThumbsUpDownApp:Make">
+        <MSBuild Projects="app\ThumbsUpDownApp.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ThumbsUpDownServer">
+        <MSBuild Projects="server\ThumbsUpDownServer.dproj"/>
+    </Target>
+    <Target Name="ThumbsUpDownServer:Clean">
+        <MSBuild Projects="server\ThumbsUpDownServer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ThumbsUpDownServer:Make">
+        <MSBuild Projects="server\ThumbsUpDownServer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ThumbsUpDownTrainModelProc">
+        <MSBuild Projects="train\trainmodelproc\ThumbsUpDownTrainModelProc.dproj"/>
+    </Target>
+    <Target Name="ThumbsUpDownTrainModelProc:Clean">
+        <MSBuild Projects="train\trainmodelproc\ThumbsUpDownTrainModelProc.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ThumbsUpDownTrainModelProc:Make">
+        <MSBuild Projects="train\trainmodelproc\ThumbsUpDownTrainModelProc.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ThumbsUpDownTrainedModelProc">
+        <MSBuild Projects="train\trainedmodelproc\ThumbsUpDownTrainedModelProc.dproj"/>
+    </Target>
+    <Target Name="ThumbsUpDownTrainedModelProc:Clean">
+        <MSBuild Projects="train\trainedmodelproc\ThumbsUpDownTrainedModelProc.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ThumbsUpDownTrainedModelProc:Make">
+        <MSBuild Projects="train\trainedmodelproc\ThumbsUpDownTrainedModelProc.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ThumbsUpDownApp;ThumbsUpDownServer;ThumbsUpDownTrainModelProc;ThumbsUpDownTrainedModelProc"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ThumbsUpDownApp:Clean;ThumbsUpDownServer:Clean;ThumbsUpDownTrainModelProc:Clean;ThumbsUpDownTrainedModelProc:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ThumbsUpDownApp:Make;ThumbsUpDownServer:Make;ThumbsUpDownTrainModelProc:Make;ThumbsUpDownTrainedModelProc:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

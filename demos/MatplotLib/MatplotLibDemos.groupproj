@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{7DF271F1-740A-4BBF-A0C7-C86F2CB36719}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="MatplotLibGallery\MatplotLibGallery.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="MatplotLibGallery">
+        <MSBuild Projects="MatplotLibGallery\MatplotLibGallery.dproj"/>
+    </Target>
+    <Target Name="MatplotLibGallery:Clean">
+        <MSBuild Projects="MatplotLibGallery\MatplotLibGallery.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MatplotLibGallery:Make">
+        <MSBuild Projects="MatplotLibGallery\MatplotLibGallery.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="MatplotLibGallery"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="MatplotLibGallery:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="MatplotLibGallery:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

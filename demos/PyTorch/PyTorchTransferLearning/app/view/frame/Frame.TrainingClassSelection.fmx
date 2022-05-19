@@ -1,0 +1,113 @@
+object TrainingClassSelectionFrame: TTrainingClassSelectionFrame
+  Size.Width = 322.000000000000000000
+  Size.Height = 513.000000000000000000
+  Size.PlatformDefault = False
+  object pnlBackground: TPanel
+    Align = Client
+    Opacity = 0.800000011920929000
+    Size.Width = 322.000000000000000000
+    Size.Height = 513.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+  end
+  object loBox: TLayout
+    Align = Center
+    Size.Width = 249.000000000000000000
+    Size.Height = 230.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object recContent: TRectangle
+      Align = Client
+      Size.Width = 249.000000000000000000
+      Size.Height = 230.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 5.000000000000000000
+      YRadius = 5.000000000000000000
+      object lbTitle: TLabel
+        Align = Top
+        StyledSettings = [Family, Size, FontColor]
+        Margins.Left = 5.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Position.X = 5.000000000000000000
+        Position.Y = 10.000000000000000000
+        Size.Width = 239.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.HorzAlign = Center
+        Text = 'Select a class'
+        TabOrder = 0
+      end
+      object lnLower: TLine
+        Align = Bottom
+        LineType = Bottom
+        Position.Y = 178.000000000000000000
+        Size.Width = 249.000000000000000000
+        Size.Height = 1.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object btnSelect: TSpeedButton
+        Align = Bottom
+        Position.Y = 179.000000000000000000
+        Size.Width = 249.000000000000000000
+        Size.Height = 51.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'speedbuttonstyle'
+        Text = 'Select'
+      end
+      object lnUpper: TLine
+        Align = Top
+        LineType = Top
+        Position.Y = 37.000000000000000000
+        Size.Width = 249.000000000000000000
+        Size.Height = 1.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object loClasses: TLayout
+        Align = Client
+        Padding.Left = 10.000000000000000000
+        Padding.Top = 40.000000000000000000
+        Padding.Right = 10.000000000000000000
+        Padding.Bottom = 40.000000000000000000
+        Size.Width = 249.000000000000000000
+        Size.Height = 140.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        object rbThumbsDown: TRadioButton
+          Align = Bottom
+          GroupName = 'classsel'
+          Position.X = 10.000000000000000000
+          Position.Y = 81.000000000000000000
+          Size.Width = 229.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          Text = 'Thumbs down'
+        end
+        object rbThumbsUp: TRadioButton
+          Align = Top
+          GroupName = 'classsel'
+          IsChecked = True
+          Position.X = 10.000000000000000000
+          Position.Y = 40.000000000000000000
+          Size.Width = 229.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 3
+          Text = 'Thumbs up'
+        end
+      end
+    end
+  end
+  object faOpacity: TFloatAnimation
+    Duration = 0.400000005960464500
+    Inverse = True
+    PropertyName = 'Opacity'
+    StartValue = 0.000000000000000000
+    StopValue = 1.000000000000000000
+    Trigger = 'IsVisible=true'
+    TriggerInverse = 'IsVisible=false'
+  end
+end

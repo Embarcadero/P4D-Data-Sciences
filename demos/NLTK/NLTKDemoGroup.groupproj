@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{A084866B-5A4C-4C05-A031-CEDCF5941A13}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="NLTKBasics\nltk_basics.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="nltk_basics">
+        <MSBuild Projects="NLTKBasics\nltk_basics.dproj"/>
+    </Target>
+    <Target Name="nltk_basics:Clean">
+        <MSBuild Projects="NLTKBasics\nltk_basics.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="nltk_basics:Make">
+        <MSBuild Projects="NLTKBasics\nltk_basics.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="nltk_basics"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="nltk_basics:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="nltk_basics:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

@@ -1,0 +1,47 @@
+object Form2: TForm2
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object Memo1: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Align = Client
+    Size.Width = 640.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Viewport.Width = 636.000000000000000000
+    Viewport.Height = 476.000000000000000000
+  end
+  object PythonEngine1: TPythonEngine
+    IO = PythonGUIInputOutput1
+    Left = 352
+    Top = 17
+  end
+  object PythonGUIInputOutput1: TPythonGUIInputOutput
+    UnicodeIO = True
+    RawOutput = False
+    Output = Memo1
+    Left = 460
+    Top = 17
+  end
+  object NumPy1: TNumPy
+    PythonEngine = PythonEngine1
+    Left = 568
+    Top = 80
+  end
+  object PythonModule1: TPythonModule
+    Engine = PythonEngine1
+    ModuleName = 'exercises'
+    Errors = <>
+    Left = 568
+    Top = 17
+  end
+end

@@ -1,0 +1,98 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Memo1: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Align = Client
+    Size.Width = 640.000000000000000000
+    Size.Height = 430.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Viewport.Width = 636.000000000000000000
+    Viewport.Height = 426.000000000000000000
+  end
+  object Layout1: TLayout
+    Align = Bottom
+    Position.Y = 430.000000000000000000
+    Size.Width = 640.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object btnGenerate: TButton
+      Position.X = 176.000000000000000000
+      Position.Y = 15.000000000000000000
+      TabOrder = 1
+      Text = 'Generate'
+      OnClick = btnGenerateClick
+    end
+    object btnTrain: TButton
+      Enabled = False
+      Position.X = 368.000000000000000000
+      Position.Y = 15.000000000000000000
+      TabOrder = 0
+      Text = 'Train'
+      OnClick = btnTrainClick
+    end
+  end
+  object PythonEngine1: TPythonEngine
+    AutoLoad = False
+    IO = PythonGUIInputOutput1
+    Left = 368
+    Top = 16
+  end
+  object PythonGUIInputOutput1: TPythonGUIInputOutput
+    UnicodeIO = True
+    RawOutput = False
+    Output = Memo1
+    Left = 512
+    Top = 16
+  end
+  object NumPy1: TNumPy
+    PythonEngine = PythonEngine1
+    PyEnvironment = PyEmbeddedResEnvironment3101
+    ManagerKind = pip
+    Left = 512
+    Top = 88
+  end
+  object PyTorch1: TPyTorch
+    PythonEngine = PythonEngine1
+    PyEnvironment = PyEmbeddedResEnvironment3101
+    ManagerKind = pip
+    Left = 512
+    Top = 152
+  end
+  object MatplotLib1: TMatplotLib
+    PythonEngine = PythonEngine1
+    PyEnvironment = PyEmbeddedResEnvironment3101
+    ManagerKind = pip
+    Left = 512
+    Top = 214
+  end
+  object PyEmbeddedResEnvironment3101: TPyEmbeddedResEnvironment310
+    AutoLoad = True
+    PythonVersion = '3.10'
+    PythonEngine = PythonEngine1
+    Async = True
+    Left = 368
+    Top = 80
+  end
+  object PyEnvironmentAddOnEnsurePip1: TPyEnvironmentAddOnEnsurePip
+    Environment = PyEmbeddedResEnvironment3101
+    Left = 368
+    Top = 184
+  end
+  object PyEnvironmentAddOn1: TPyEnvironmentAddOn
+    Environment = PyEmbeddedResEnvironment3101
+    Triggers = []
+    Left = 384
+    Top = 272
+  end
+end

@@ -1,0 +1,158 @@
+object Form16: TForm16
+  Left = 0
+  Top = 0
+  Caption = 'NLTK via Python4Delphi'
+  ClientHeight = 417
+  ClientWidth = 474
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Button1: TButton
+    Enabled = False
+    Position.X = 10.000000000000000000
+    Position.Y = 66.000000000000000000
+    TabOrder = 4
+    Text = 'Tokenize'
+    OnClick = Button1Click
+  end
+  object StatusBar1: TStatusBar
+    Position.Y = 395.000000000000000000
+    ShowSizeGrip = True
+    Size.Width = 474.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    object lbMsg: TLabel
+      Align = Left
+      Margins.Left = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Size.Width = 113.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+    end
+    object lbDesc: TLabel
+      Align = Client
+      Margins.Right = 25.000000000000000000
+      Size.Width = 326.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+    end
+  end
+  object Memo1: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Lines.Strings = (
+      'At eight o'#39'clock on Thursday morning'
+      '... Arthur didn'#39't feel very good.')
+    Anchors = [akLeft, akTop, akRight]
+    Position.X = 10.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 456.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 11
+    Viewport.Width = 452.000000000000000000
+    Viewport.Height = 46.000000000000000000
+  end
+  object ListBox1: TListBox
+    Anchors = [akLeft, akTop, akBottom]
+    Position.X = 8.000000000000000000
+    Position.Y = 96.000000000000000000
+    Size.Width = 137.000000000000000000
+    Size.Height = 291.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    DisableFocusEffect = True
+    DefaultItemStyles.ItemStyle = ''
+    DefaultItemStyles.GroupHeaderStyle = ''
+    DefaultItemStyles.GroupFooterStyle = ''
+    Viewport.Width = 133.000000000000000000
+    Viewport.Height = 287.000000000000000000
+  end
+  object ListBox2: TListBox
+    Anchors = [akLeft, akTop, akBottom]
+    Position.X = 153.000000000000000000
+    Position.Y = 96.000000000000000000
+    Size.Width = 144.000000000000000000
+    Size.Height = 291.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 19
+    DisableFocusEffect = True
+    DefaultItemStyles.ItemStyle = ''
+    DefaultItemStyles.GroupHeaderStyle = ''
+    DefaultItemStyles.GroupFooterStyle = ''
+    Viewport.Width = 140.000000000000000000
+    Viewport.Height = 287.000000000000000000
+  end
+  object ListBox3: TListBox
+    Anchors = [akLeft, akTop, akBottom]
+    Position.X = 305.000000000000000000
+    Position.Y = 96.000000000000000000
+    Size.Width = 160.000000000000000000
+    Size.Height = 291.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 20
+    DisableFocusEffect = True
+    DefaultItemStyles.ItemStyle = ''
+    DefaultItemStyles.GroupHeaderStyle = ''
+    DefaultItemStyles.GroupFooterStyle = ''
+    Viewport.Width = 156.000000000000000000
+    Viewport.Height = 287.000000000000000000
+  end
+  object NLTK1: TNLTK
+    PythonEngine = PythonEngine1
+    PyEnvironment = PyEmbeddedResEnvironment3101
+    ManagerKind = pip
+    Left = 240
+    Top = 120
+  end
+  object PyEmbeddedResEnvironment3101: TPyEmbeddedResEnvironment310
+    BeforeSetup = PyEmbeddedResEnvironment3101BeforeSetup
+    AfterSetup = PyEmbeddedResEnvironment3101AfterSetup
+    BeforeActivate = PyEmbeddedResEnvironment3101BeforeActivate
+    AfterActivate = PyEmbeddedResEnvironment3101AfterActivate
+    AutoLoad = True
+    PythonVersion = '3.10'
+    PythonEngine = PythonEngine1
+    OnZipProgress = PyEmbeddedResEnvironment3101ZipProgress
+    Left = 192
+    Top = 256
+  end
+  object PyEnvironmentAddOnEnsurePip1: TPyEnvironmentAddOnEnsurePip
+    Environment = PyEmbeddedResEnvironment3101
+    Left = 192
+    Top = 312
+  end
+  object PythonEngine1: TPythonEngine
+    AutoLoad = False
+    Left = 368
+    Top = 128
+  end
+  object PythonGUIInputOutput1: TPythonGUIInputOutput
+    UnicodeIO = True
+    RawOutput = False
+    Left = 368
+    Top = 208
+  end
+  object PythonType1: TPythonType
+    Engine = PythonEngine1
+    Prefix = 'Create'
+    Services.Basic = [bsRepr, bsStr, bsGetAttrO, bsSetAttrO]
+    Services.InplaceNumber = []
+    Services.Number = []
+    Services.Sequence = []
+    Services.Mapping = []
+    Left = 368
+    Top = 296
+  end
+  object NumPy1: TNumPy
+    PythonEngine = PythonEngine1
+    PyEnvironment = PyEmbeddedResEnvironment3101
+    ManagerKind = pip
+    Left = 240
+    Top = 184
+  end
+end

@@ -1,0 +1,190 @@
+object MenuFrame: TMenuFrame
+  Align = Client
+  Size.Width = 329.000000000000000000
+  Size.Height = 604.000000000000000000
+  Size.PlatformDefault = False
+  object loContainer: TLayout
+    Align = Client
+    Padding.Left = 10.000000000000000000
+    Padding.Top = 10.000000000000000000
+    Padding.Right = 10.000000000000000000
+    Padding.Bottom = 10.000000000000000000
+    Size.Width = 329.000000000000000000
+    Size.Height = 564.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object loCollapse: TLayout
+      Align = Client
+      Size.Width = 309.000000000000000000
+      Size.Height = 544.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object loProfile: TLayout
+        Align = Top
+        Size.Width = 309.000000000000000000
+        Size.Height = 185.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object ceProfile: TComboEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = Top
+          StyleLookup = 'comboeditstyle'
+          TabOrder = 0
+          ItemHeight = 19.000000000000000000
+          Items.Strings = (
+            'Default')
+          ItemIndex = 0
+          Text = 'Default'
+          Position.X = 20.000000000000000000
+          Position.Y = 67.000000000000000000
+          Margins.Left = 20.000000000000000000
+          Margins.Top = 30.000000000000000000
+          Margins.Right = 20.000000000000000000
+          Size.Width = 269.000000000000000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+        end
+        object lbProfile: TLabel
+          Align = Top
+          Margins.Left = 20.000000000000000000
+          Margins.Top = 20.000000000000000000
+          Margins.Right = 20.000000000000000000
+          Position.X = 20.000000000000000000
+          Position.Y = 20.000000000000000000
+          Size.Width = 269.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'labelstyle'
+          TextSettings.HorzAlign = Center
+          Text = 'Profile'
+          TabOrder = 1
+        end
+        object btnContinue: TSpeedButton
+          Align = Bottom
+          StyledSettings = [Family, Size, Style]
+          Margins.Left = 20.000000000000000000
+          Margins.Top = 20.000000000000000000
+          Margins.Right = 20.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Position.X = 20.000000000000000000
+          Position.Y = 153.000000000000000000
+          Size.Width = 269.000000000000000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'continue'
+          TextSettings.FontColor = claAqua
+        end
+      end
+      object loActions: TLayout
+        Align = Client
+        Size.Width = 309.000000000000000000
+        Size.Height = 359.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object sbActions: TScrollBox
+          Align = Client
+          Size.Width = 309.000000000000000000
+          Size.Height = 359.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Viewport.Width = 309.000000000000000000
+          Viewport.Height = 359.000000000000000000
+          object btnCollectData: TButton
+            Align = Top
+            Margins.Left = 20.000000000000000000
+            Margins.Top = 40.000000000000000000
+            Margins.Right = 20.000000000000000000
+            Position.X = 20.000000000000000000
+            Position.Y = 40.000000000000000000
+            Size.Width = 269.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 3
+            Text = 'Collect Data'
+          end
+          object btnLiveRecognition: TButton
+            Align = Top
+            Margins.Left = 20.000000000000000000
+            Margins.Top = 40.000000000000000000
+            Margins.Right = 20.000000000000000000
+            Position.X = 20.000000000000000000
+            Position.Y = 200.000000000000000000
+            Size.Width = 269.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            Text = 'Live Recognition'
+          end
+          object btnQuit: TButton
+            Align = Top
+            Margins.Left = 20.000000000000000000
+            Margins.Top = 40.000000000000000000
+            Margins.Right = 20.000000000000000000
+            Position.X = 20.000000000000000000
+            Position.Y = 280.000000000000000000
+            Size.Width = 269.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            Text = 'Quit'
+          end
+          object btnTrainModel: TButton
+            Align = Top
+            Margins.Left = 20.000000000000000000
+            Margins.Top = 40.000000000000000000
+            Margins.Right = 20.000000000000000000
+            Position.X = 20.000000000000000000
+            Position.Y = 120.000000000000000000
+            Size.Width = 269.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            Text = 'Train Model'
+          end
+        end
+      end
+    end
+  end
+  object ToolBar1: TToolBar
+    Size.Width = 329.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object btnMenu: TSpeedButton
+      Align = Right
+      Position.X = 264.000000000000000000
+      Size.Width = 65.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'detailstoolbutton'
+      Text = 'btnMenu'
+      OnClick = btnMenuClick
+    end
+  end
+  object lbMenu: TListBox
+    Anchors = [akTop, akRight]
+    Position.X = 166.000000000000000000
+    Position.Y = 50.000000000000000000
+    Size.Width = 153.000000000000000000
+    Size.Height = 52.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    DisableFocusEffect = True
+    DefaultItemStyles.ItemStyle = ''
+    DefaultItemStyles.GroupHeaderStyle = ''
+    DefaultItemStyles.GroupFooterStyle = ''
+    Viewport.Width = 149.000000000000000000
+    Viewport.Height = 48.000000000000000000
+    object lblHost: TListBoxItem
+      TextSettings.FontColor = claWhite
+      StyledSettings = [Family, Size, Style, Other]
+      Size.Width = 149.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'listboxitemdetaillabel'
+      TabOrder = 0
+      Text = 'Host'
+      OnClick = lblHostClick
+    end
+  end
+end

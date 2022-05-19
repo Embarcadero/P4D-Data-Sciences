@@ -1,0 +1,26 @@
+object CustomCameraLayoutFrame: TCustomCameraLayoutFrame
+  Size.Width = 385.000000000000000000
+  Size.Height = 670.000000000000000000
+  Size.PlatformDefault = False
+  object ccCameraComp: TCameraComponent
+    Left = 184
+    Top = 80
+  end
+  object recBackgroud: TRectangle
+    Align = Client
+    Fill.Color = claBlack
+    Size.Width = 385.000000000000000000
+    Size.Height = 670.000000000000000000
+    Size.PlatformDefault = False
+    object imgCamera: TImage
+      MultiResBitmap = <
+        item
+        end>
+      Align = Client
+      Size.Width = 385.000000000000000000
+      Size.Height = 670.000000000000000000
+      Size.PlatformDefault = False
+      WrapMode = Stretch
+    end
+  end
+end
