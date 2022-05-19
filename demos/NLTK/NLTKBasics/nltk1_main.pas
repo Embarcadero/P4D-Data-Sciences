@@ -4,8 +4,8 @@ interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, System.Zip,
-  FMX.Memo.Types, NumPy, PythonEngine, FMX.PythonGUIInputOutput,
+  System.Zip, System.Threading, FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics,
+  FMX.Dialogs, FMX.Memo.Types, NumPy, PythonEngine, FMX.PythonGUIInputOutput,
   PyEnvironment.AddOn, PyEnvironment.AddOn.EnsurePip, PyEnvironment,
   PyEnvironment.Embeddable, PyEnvironment.Embeddable.Res,
   PyEnvironment.Embeddable.Res.Python310, PyCommon, PyModule, PyPackage, NLTK,
@@ -16,7 +16,6 @@ type
   TForm16 = class(TForm)
     NLTK1: TNLTK;
     PyEmbeddedResEnvironment3101: TPyEmbeddedResEnvironment310;
-    PyEnvironmentAddOnEnsurePip1: TPyEnvironmentAddOnEnsurePip;
     PythonEngine1: TPythonEngine;
     Button1: TButton;
     PythonGUIInputOutput1: TPythonGUIInputOutput;
@@ -26,7 +25,6 @@ type
     Memo1: TMemo;
     ListBox1: TListBox;
     PythonType1: TPythonType;
-    NumPy1: TNumPy;
     ListBox2: TListBox;
     ListBox3: TListBox;
     procedure Button1Click(Sender: TObject);
@@ -41,8 +39,13 @@ type
     procedure PyEmbeddedResEnvironment3101ZipProgress(Sender: TObject;
       ADistribution: TPyCustomEmbeddableDistribution; FileName: string;
       Header: TZipHeader; Position: Int64);
+    procedure NLTK1AfterInstall(Sender: TObject);
+    procedure NLTK1BeforeInstall(Sender: TObject);
+    procedure NLTK1InstallError(Sender: TObject; AErrorMessage: string);
+    procedure FormCreate(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
   private
-    { Private declarations }
+    FTask: ITask;
     procedure UpdateInstallationStatus(const AStatus, ADescription: string);
   public
     { Public declarations }
@@ -54,6 +57,7 @@ var
 implementation
 
 uses
+  FMX.DialogService,
   VarPyth;
 
 {$R *.fmx}
@@ -91,6 +95,45 @@ begin
     for var i in VarPyIterate(t) do
      // i.draw(); // Requires Tkinter....
   end;
+end;
+
+procedure TForm16.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+  if not (FTask.Status in [TTaskStatus.Completed, TTaskStatus.Exception]) then begin
+    ShowMessage('Waiting for operations...');
+    FTask.Wait();
+  end;
+end;
+
+procedure TForm16.FormCreate(Sender: TObject);
+begin
+  FTask := TTask.Run(procedure() begin
+    PyEmbeddedResEnvironment3101.Setup(PyEmbeddedResEnvironment3101.PythonVersion);
+    TThread.Synchronize(nil, procedure() begin
+      PyEmbeddedResEnvironment3101.Activate(PyEmbeddedResEnvironment3101.PythonVersion);
+    end);
+
+    NLTK1.Install();
+    TThread.Queue(nil, procedure() begin
+      NLTK1.Import();
+      Button1.Enabled := true;
+    end);
+  end);
+end;
+
+procedure TForm16.NLTK1AfterInstall(Sender: TObject);
+begin
+  UpdateInstallationStatus('NLTK', 'Package has been installed.');
+end;
+
+procedure TForm16.NLTK1BeforeInstall(Sender: TObject);
+begin
+  UpdateInstallationStatus('NLTK', 'Installing package.');
+end;
+
+procedure TForm16.NLTK1InstallError(Sender: TObject; AErrorMessage: string);
+begin
+  UpdateInstallationStatus('NLTK', AErrorMessage);
 end;
 
 procedure TForm16.PyEmbeddedResEnvironment3101AfterActivate(
@@ -131,10 +174,12 @@ end;
 procedure TForm16.UpdateInstallationStatus(const AStatus,
   ADescription: string);
 begin
-  lbMsg.Text := AStatus;
-  lbMsg.Repaint;
-  lbDesc.Text := ADescription;
-  lbDesc.Repaint;
+  TThread.Synchronize(nil, procedure() begin
+    lbMsg.Text := AStatus;
+    lbMsg.Repaint;
+    lbDesc.Text := ADescription;
+    lbDesc.Repaint;
+  end);
 end;
 
 end.

@@ -7,6 +7,8 @@ object Form16: TForm16
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnCloseQuery = FormCloseQuery
   DesignerMasterStyle = 0
   object Button1: TButton
     Enabled = False
@@ -103,28 +105,28 @@ object Form16: TForm16
     Viewport.Height = 287.000000000000000000
   end
   object NLTK1: TNLTK
+    AutoImport = False
     PythonEngine = PythonEngine1
     PyEnvironment = PyEmbeddedResEnvironment3101
     ManagerKind = pip
-    Left = 240
-    Top = 120
+    AutoInstall = False
+    BeforeInstall = NLTK1BeforeInstall
+    OnInstallError = NLTK1InstallError
+    AfterInstall = NLTK1AfterInstall
+    Left = 192
+    Top = 128
   end
   object PyEmbeddedResEnvironment3101: TPyEmbeddedResEnvironment310
     BeforeSetup = PyEmbeddedResEnvironment3101BeforeSetup
     AfterSetup = PyEmbeddedResEnvironment3101AfterSetup
     BeforeActivate = PyEmbeddedResEnvironment3101BeforeActivate
     AfterActivate = PyEmbeddedResEnvironment3101AfterActivate
-    AutoLoad = True
+    AutoLoad = False
     PythonVersion = '3.10'
     PythonEngine = PythonEngine1
     OnZipProgress = PyEmbeddedResEnvironment3101ZipProgress
     Left = 192
-    Top = 256
-  end
-  object PyEnvironmentAddOnEnsurePip1: TPyEnvironmentAddOnEnsurePip
-    Environment = PyEmbeddedResEnvironment3101
-    Left = 192
-    Top = 312
+    Top = 208
   end
   object PythonEngine1: TPythonEngine
     AutoLoad = False
@@ -147,12 +149,5 @@ object Form16: TForm16
     Services.Mapping = []
     Left = 368
     Top = 296
-  end
-  object NumPy1: TNumPy
-    PythonEngine = PythonEngine1
-    PyEnvironment = PyEmbeddedResEnvironment3101
-    ManagerKind = pip
-    Left = 240
-    Top = 184
   end
 end
