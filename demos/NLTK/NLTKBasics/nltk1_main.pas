@@ -27,6 +27,7 @@ type
     PythonType1: TPythonType;
     ListBox2: TListBox;
     ListBox3: TListBox;
+    NumPy1: TNumPy;
     procedure Button1Click(Sender: TObject);
     procedure PyEmbeddedResEnvironment3101AfterActivate(Sender: TObject;
       const APythonVersion: string; const AActivated: Boolean);
@@ -107,6 +108,7 @@ end;
 
 procedure TForm16.FormCreate(Sender: TObject);
 begin
+  Button1.Enabled := false;
   FTask := TTask.Run(procedure() begin
     PyEmbeddedResEnvironment3101.Setup(PyEmbeddedResEnvironment3101.PythonVersion);
     TThread.Synchronize(nil, procedure() begin

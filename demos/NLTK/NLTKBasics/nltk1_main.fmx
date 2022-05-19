@@ -126,7 +126,7 @@ object Form16: TForm16
     PythonEngine = PythonEngine1
     OnZipProgress = PyEmbeddedResEnvironment3101ZipProgress
     Left = 192
-    Top = 208
+    Top = 296
   end
   object PythonEngine1: TPythonEngine
     AutoLoad = False
@@ -149,5 +149,10 @@ object Form16: TForm16
     Services.Mapping = []
     Left = 368
     Top = 296
+  end
+  object NumPy1: TNumPy
+    ManagerKind = pip
+    Left = 192
+    Top = 200
   end
 end
