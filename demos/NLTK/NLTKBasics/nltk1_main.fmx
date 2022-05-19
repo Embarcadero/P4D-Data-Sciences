@@ -14,9 +14,23 @@ object Form16: TForm16
     Enabled = False
     Position.X = 10.000000000000000000
     Position.Y = 66.000000000000000000
+    Size.Width = 95.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
     TabOrder = 4
     Text = 'Tokenize'
     OnClick = Button1Click
+    object AniIndicator1: TAniIndicator
+      Align = Left
+      Margins.Left = 3.000000000000000000
+      Margins.Top = 3.000000000000000000
+      Margins.Right = 3.000000000000000000
+      Margins.Bottom = 3.000000000000000000
+      Size.Width = 25.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      Visible = False
+    end
   end
   object StatusBar1: TStatusBar
     Position.Y = 395.000000000000000000
@@ -151,8 +165,15 @@ object Form16: TForm16
     Top = 296
   end
   object NumPy1: TNumPy
+    AutoImport = False
+    PythonEngine = PythonEngine1
+    PyEnvironment = PyEmbeddedResEnvironment3101
     ManagerKind = pip
+    AutoInstall = False
+    BeforeInstall = NumPy1BeforeInstall
+    AfterInstall = NumPy1AfterInstall
+    OnUninstallError = NumPy1UninstallError
     Left = 192
-    Top = 200
+    Top = 208
   end
 end

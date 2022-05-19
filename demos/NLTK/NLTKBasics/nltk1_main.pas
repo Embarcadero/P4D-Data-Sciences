@@ -28,6 +28,7 @@ type
     ListBox2: TListBox;
     ListBox3: TListBox;
     NumPy1: TNumPy;
+    AniIndicator1: TAniIndicator;
     procedure Button1Click(Sender: TObject);
     procedure PyEmbeddedResEnvironment3101AfterActivate(Sender: TObject;
       const APythonVersion: string; const AActivated: Boolean);
@@ -45,9 +46,13 @@ type
     procedure NLTK1InstallError(Sender: TObject; AErrorMessage: string);
     procedure FormCreate(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure NumPy1AfterInstall(Sender: TObject);
+    procedure NumPy1UninstallError(Sender: TObject; AErrorMessage: string);
+    procedure NumPy1BeforeInstall(Sender: TObject);
   private
     FTask: ITask;
     procedure UpdateInstallationStatus(const AStatus, ADescription: string);
+    function IsTaskRunning(): boolean;
   public
     { Public declarations }
   end;
@@ -100,27 +105,46 @@ end;
 
 procedure TForm16.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 begin
-  if not (FTask.Status in [TTaskStatus.Completed, TTaskStatus.Exception]) then begin
+  if IsTaskRunning() then begin
     ShowMessage('Waiting for operations...');
-    FTask.Wait();
+    FTask.Cancel();
+    while IsTaskRunning() do begin
+      FTask.Wait(100);
+      //Avoid synchronization deadlock
+      Application.ProcessMessages();
+    end;
   end;
 end;
 
 procedure TForm16.FormCreate(Sender: TObject);
 begin
   Button1.Enabled := false;
+  AniIndicator1.Enabled := true;
+  AniIndicator1.Visible := true;
   FTask := TTask.Run(procedure() begin
     PyEmbeddedResEnvironment3101.Setup(PyEmbeddedResEnvironment3101.PythonVersion);
+    FTask.CheckCanceled();
     TThread.Synchronize(nil, procedure() begin
       PyEmbeddedResEnvironment3101.Activate(PyEmbeddedResEnvironment3101.PythonVersion);
     end);
-
+    FTask.CheckCanceled();
+    NumPy1.Install();
+    FTask.CheckCanceled();
     NLTK1.Install();
+    FTask.CheckCanceled();
     TThread.Queue(nil, procedure() begin
+      NumPy1.Import();
       NLTK1.Import();
+      AniIndicator1.Visible := false;
+      AniIndicator1.Enabled := false;
       Button1.Enabled := true;
     end);
   end);
+end;
+
+function TForm16.IsTaskRunning: boolean;
+begin
+  Result := not (FTask.Status in [TTaskStatus.Completed, TTaskStatus.Exception]);
 end;
 
 procedure TForm16.NLTK1AfterInstall(Sender: TObject);
@@ -136,6 +160,21 @@ end;
 procedure TForm16.NLTK1InstallError(Sender: TObject; AErrorMessage: string);
 begin
   UpdateInstallationStatus('NLTK', AErrorMessage);
+end;
+
+procedure TForm16.NumPy1AfterInstall(Sender: TObject);
+begin
+  UpdateInstallationStatus('NumPy', 'Package has been installed.');
+end;
+
+procedure TForm16.NumPy1BeforeInstall(Sender: TObject);
+begin
+  UpdateInstallationStatus('NumPy', 'Installing package.');
+end;
+
+procedure TForm16.NumPy1UninstallError(Sender: TObject; AErrorMessage: string);
+begin
+  UpdateInstallationStatus('NumPy', AErrorMessage);
 end;
 
 procedure TForm16.PyEmbeddedResEnvironment3101AfterActivate(
