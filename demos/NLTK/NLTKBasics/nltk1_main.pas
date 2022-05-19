@@ -138,6 +138,7 @@ begin
       AniIndicator1.Visible := false;
       AniIndicator1.Enabled := false;
       Button1.Enabled := true;
+      UpdateInstallationStatus('Ready', String.Empty);
     end);
   end);
 end;
