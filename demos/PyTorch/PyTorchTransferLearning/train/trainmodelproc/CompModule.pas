@@ -4,7 +4,9 @@ interface
 
 uses
   System.SysUtils, System.Classes, PythonEngine, TorchVision, PyTorch, PyCommon,
-  PyModule, PyPackage, NumPy;
+  PyModule, PyPackage, NumPy, PyEnvironment, PyEnvironment.Embeddable,
+  PyEnvironment.Embeddable.Res,
+  System.Zip, OpenCV, PyEnvironment.Embeddable.Res.Python38;
 
 type
   TPyComps = class(TDataModule)
@@ -13,22 +15,34 @@ type
     PyTorch: TPyTorch;
     PyTorchVision: TTorchVision;
     PyIO: TPythonInputOutput;
+    PyOpenCV: TOpenCV;
+    PyEmbeddedResEnvironment381: TPyEmbeddedResEnvironment38;
     procedure PyIOSendData(Sender: TObject; const Data: AnsiString);
     procedure PyIOReceiveData(Sender: TObject; var Data: AnsiString);
-  private
-    FOutMonitor: TProc<string>;
-    FInMonitor: TProc<string>;
+    procedure PyNumPyAfterInstall(Sender: TObject);
+    procedure PyNumPyBeforeInstall(Sender: TObject);
+    procedure PyTorchVisionBeforeInstall(Sender: TObject);
+    procedure PyTorchVisionAfterInstall(Sender: TObject);
+    procedure PyTorchBeforeInstall(Sender: TObject);
+    procedure PyTorchAfterInstall(Sender: TObject);
+    procedure PyOpenCVBeforeInstall(Sender: TObject);
+    procedure PyOpenCVAfterInstall(Sender: TObject);
+    procedure PyOpenCVInstallError(Sender: TObject; AErrorMessage: string);
+    procedure PyEmbeddedResEnvironment381AfterActivate(Sender: TObject;
+      const APythonVersion: string; const AActivated: Boolean);
+    procedure PyEmbeddedResEnvironment381BeforeSetup(Sender: TObject;
+      const APythonVersion: string);
   public
-    constructor Create(AOwner: TComponent; const AIn, AOut: TProc<string>); reintroduce; overload;
-
     procedure CheckEngine();
-    procedure Monitor(const AIn, AOut: TProc<string>);
   end;
 
 var
   PyComps: TPyComps;
 
 implementation
+
+uses
+  Pipe;
 
 {%CLASSGROUP 'System.Classes.TPersistent'}
 
@@ -40,28 +54,71 @@ begin
     raise EDLLLoadError.Create('The Python interpreter could not be loaded.');
 end;
 
-constructor TPyComps.Create(AOwner: TComponent; const AIn, AOut: TProc<string>);
+procedure TPyComps.PyOpenCVAfterInstall(Sender: TObject);
 begin
-  Monitor(AIn, AOut);
-  inherited Create(AOwner);
+  TPipeIO.Write('OpenCV has been installed');
 end;
 
-procedure TPyComps.Monitor(const AIn, AOut: TProc<string>);
+procedure TPyComps.PyOpenCVBeforeInstall(Sender: TObject);
 begin
-  FInMonitor := AIn;
-  FOutMonitor := AOut;
+  TPipeIO.Write('Installing OpenCV');
+end;
+
+procedure TPyComps.PyOpenCVInstallError(Sender: TObject; AErrorMessage: string);
+begin
+  TPipeIO.Write(AErrorMessage);
+end;
+
+procedure TPyComps.PyEmbeddedResEnvironment381AfterActivate(Sender: TObject;
+  const APythonVersion: string; const AActivated: Boolean);
+begin
+  TPipeIO.Write('Python is ready');
+end;
+
+procedure TPyComps.PyEmbeddedResEnvironment381BeforeSetup(Sender: TObject;
+  const APythonVersion: string);
+begin
+  TPipeIO.Write('Setting up Python' + APythonVersion);
 end;
 
 procedure TPyComps.PyIOReceiveData(Sender: TObject; var Data: AnsiString);
 begin
-  if Assigned(FInMonitor) then
-    FInMonitor(String(Data));
+  TPipeIO.Write(String(Data));
 end;
 
 procedure TPyComps.PyIOSendData(Sender: TObject; const Data: AnsiString);
 begin
-  if Assigned(FOutMonitor) then
-    FOutMonitor(String(Data));
+  TPipeIO.Write(String(Data));
+end;
+
+procedure TPyComps.PyNumPyAfterInstall(Sender: TObject);
+begin
+  TPipeIO.Write('NumPy has been installed');
+end;
+
+procedure TPyComps.PyNumPyBeforeInstall(Sender: TObject);
+begin
+  TPipeIO.Write('Installing NumPy');
+end;
+
+procedure TPyComps.PyTorchAfterInstall(Sender: TObject);
+begin
+  TPipeIO.Write('PyTorch has been installed');
+end;
+
+procedure TPyComps.PyTorchBeforeInstall(Sender: TObject);
+begin
+  TPipeIO.Write('Installing PyTorch');
+end;
+
+procedure TPyComps.PyTorchVisionAfterInstall(Sender: TObject);
+begin
+  TPipeIO.Write('PyTorch Vision has been installed');
+end;
+
+procedure TPyComps.PyTorchVisionBeforeInstall(Sender: TObject);
+begin
+  TPipeIO.Write('Installing PyTorch Vision');
 end;
 
 end.

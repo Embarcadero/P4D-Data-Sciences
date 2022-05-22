@@ -5,9 +5,11 @@ interface
 uses System.SysUtils, System.Classes, System.Json,
   DataSnap.DSProviderDataModuleAdapter,
   Datasnap.DSServer, Datasnap.DSAuth, FMX.Forms,
-  ExecProc.Win;
+  PyTools.ExecCmd;
 
-type
+type  
+  TExecCmdAdapter = class;
+  
   TTrainingClass = class(TDSServerModule)
   private
     procedure BuildDir(const ADir: string);
@@ -20,10 +22,12 @@ type
     function IsSessionValid(const ASessionId: string): boolean;
 
     procedure ProcessTrainModelResult(const AProfile, ASessionId, AChannel, ACallbackId: string; const AResultCode: integer);
+    function HasTrainingSession(const AProfile: string): boolean;
+    function InternalContainsTrainedModel(const AProfile: string): boolean;
 
     function GetTrainedProcName(const AProfile: string): string;
     procedure LoadTrainedModelProc(const AProfile: string);
-    function GetTrainedModelProc(const AProfile: string): TExecCmdWin;
+    function GetTrainedModelProc(const AProfile: string): TExecCmdAdapter;
   public
     const IMAGES_FOLDER = 'training_data';
   public
@@ -34,13 +38,40 @@ type
       const AImage: TStream): integer;
     procedure Clear(const AProfile, ATrainingClass: string);
     function TrainModel(const AProfile: string): TJSONValue;
+    function ContainsTrainedModel(const AProfile: string): TJSONValue;
     function Recognize(const AProfile: string; const AImage: TStream): TJSONValue;
   end;
 
+  TExecCmdAdapter = class
+  strict private
+    FExecCmd: IExecCmd;
+    FReader: TReader;
+    FWriter: TWriter;
+  public
+    constructor Create(const AExecCmd: IExecCmd; const AReader: TReader; const AWriter: TWriter);
+    
+    property ExecCmd: IExecCmd read FExecCmd;
+    property Reader: TReader read FReader;
+    property Writer: TWriter read FWriter;
+  end;
+  
 implementation
 
 uses
   System.IOUtils, ServerContainerUnit1, DSSession, ProcErrorCode;
+
+const
+  CHANNEL_SUFIX = '_TRAIN_MODEL_CALLBACK';
+
+{ TExecCmdAdapter }
+
+constructor TExecCmdAdapter.Create(const AExecCmd: IExecCmd; const AReader: TReader;
+  const AWriter: TWriter);
+begin
+  FExecCmd := AExecCmd;
+  FReader := AReader;
+  FWriter := AWriter;
+end;
 
 {%CLASSGROUP 'FMX.Controls.TControl'}
 
@@ -97,15 +128,31 @@ begin
   Result := AProfile + '_TRAINED_MODEL_PROC';
 end;
 
+function TTrainingClass.InternalContainsTrainedModel(
+  const AProfile: string): boolean;
+begin
+  Result := TFile.Exists(GetModelPath(AProfile));
+end;
+
 function TTrainingClass.IsSessionValid(const ASessionId: string): boolean;
 begin
   Result := Assigned(TDSSessionManager.Instance.Session[ASessionId])
     and TDSSessionManager.Instance.Session[ASessionId].IsValid;
 end;
 
+function TTrainingClass.HasTrainingSession(const AProfile: string): boolean;
+begin
+  var LChannel := AProfile + CHANNEL_SUFIX;
+  Result := TDSSessionManager.GetThreadSession().HasData(LChannel);
+end;
+
 procedure TTrainingClass.LoadTrainedModelProc(const AProfile: string);
 const
   PROC = 'ThumbsUpDownTrainedModelProc.exe';
+  DEBUG_FLAG = 'DEBUG';
+var
+  LReader: TReader;
+  LWriter: TWriter;
 begin
   var LProcName := GetTrainedProcName(AProfile);
 
@@ -116,29 +163,26 @@ begin
   if not TFile.Exists(LModel) then
     raise Exception.Create('Profile doesn''t has a trained model.');
 
-  var LCmd := PROC
-    + ' -o' + LModel
-    + ' -mCHILD_PROC';
-//    + ' ' + DEBUG_FLAG; //The debug flag to hang on the proc. until you attach the debugger...
+  var LExec := TExecCmdService
+    .Cmd(PROC, ['-o' + LModel, '-mCHILD_PROC' {, DEBUG_FLAG}])
+      .Run(LReader, LWriter, [TRedirect.stdin, TRedirect.stdout]);
 
-  TDSSessionManager.GetThreadSession().PutObject(
-    LProcName,
-    TExecCmdWin.Create(LCmd, [TRedirect.stdout, TRedirect.stdin]));
+  TDSSessionManager.GetThreadSession().PutObject(LProcName,
+    TExecCmdAdapter.Create(LExec, LReader, LWriter));
 end;
 
-function TTrainingClass.GetTrainedModelProc(const AProfile: string): TExecCmdWin;
+function TTrainingClass.GetTrainedModelProc(const AProfile: string): TExecCmdAdapter;
 const
   PROC = 'ThumbsUpDownTrainedModelProc.exe';
-  DEBUG_FLAG = 'DEBUG';
 begin
   var LProcName := GetTrainedProcName(AProfile);
   if not TDSSessionManager.GetThreadSession().HasObject(LProcName) then
     LoadTrainedModelProc(AProfile);
 
-  Result := TExecCmdWin(TDSSessionManager.GetThreadSession().GetObject(LProcName));
+  Result := TExecCmdAdapter(TDSSessionManager.GetThreadSession().GetObject(LProcName));
 
   //If the process has died in some manner
-  if not Result.IsAlive then begin
+  if not Result.ExecCmd.IsAlive then begin
     TDSSessionManager.GetThreadSession().RemoveObject(LProcName, true);
     Result := GetTrainedModelProc(AProfile);
   end;
@@ -173,11 +217,12 @@ begin
     end;
 
     if not LMsg.IsEmpty() then
-      DSServer.BroadcastMessage(AChannel, ACallbackId,
-        TJSONObject.Create(
-          TJSONPair.Create(
-            'pipe',
-            LMsg + ' Error code: ' + AResultCode.ToString())));
+      LMsg := LMsg + ' Error code: ' + AResultCode.ToString()  
+    else
+      LMsg := 'An unknown error has occurred';
+                                                 
+    DSServer.BroadcastMessage(AChannel, ACallbackId,
+      TJSONObject.Create(TJSONPair.Create('pipe', LMsg)));
 
     DSServer.BroadcastMessage(AChannel, ACallbackId,
       TJSONObject.Create(TJSONPair.Create('done', false)));
@@ -192,6 +237,15 @@ begin
   TDirectory.Delete(BuildClassFolder(BuildProfileFolder(BuildImagesFolder(), AProfile), ATrainingClass), true);
 end;
 
+function TTrainingClass.ContainsTrainedModel(
+  const AProfile: string): TJSONValue;
+begin
+  case InternalContainsTrainedModel(AProfile) of
+    true: Result := TJSONTrue.Create();
+    false: Result := TJSONFalse.Create();
+  end;
+end;
+
 function TTrainingClass.CountClass(const AProfile,
   ATrainingClass: string): integer;
 begin
@@ -200,16 +254,13 @@ end;
 
 function TTrainingClass.LoadProfile(const AProfile: string): TJSONValue;
 begin
-  var LModel := GetModelPath(AProfile);
-  var LContainsTrainedModel := TFile.Exists(LModel);
+  var LIsTrained := InternalContainsTrainedModel(AProfile);
 
-  Result := TJSONObject.Create();
-  with Result as TJSONObject do begin
-    AddPair('contains_trained_model', LContainsTrainedModel);
-  end;
+  Result := TJSONObject.Create(
+    TJSONPair.Create('contains_trained_model', LIsTrained));
 
   //Starts up the trained module proc to reduce delay time on first recognition call
-  if LContainsTrainedModel then
+  if LIsTrained then
     LoadTrainedModelProc(AProfile);
 end;
 
@@ -230,7 +281,6 @@ end;
 
 function TTrainingClass.TrainModel(const AProfile: string): TJSONValue;
 const
-  CHANNEL_SUFIX = '_TRAIN_MODEL_CALLBACK';
   PROC = 'ThumbsUpDownTrainModelProc.exe';
   DEBUG_FLAG = 'd';
 begin
@@ -241,7 +291,7 @@ begin
   var LCallBackId := LChannel + '_' + TDSSessionManager.GetThreadSession().SessionName;
 
   //Only one training execution per profile session
-  if TDSSessionManager.GetThreadSession().HasData(LChannel) then begin
+  if HasTrainingSession(AProfile) then begin
     Result := TJSONObject.Create();
     TJSONObject(Result).AddPair(TJSONPair.Create(
       'error',
@@ -259,11 +309,11 @@ begin
   if TFile.Exists(LModel) then
     TFile.Delete(LModel);
 
-  var LCmd := PROC
-    + ' ' + AProfile
-    + ' ' + BuildProfileFolder(BuildImagesFolder(), AProfile)
-    + ' ' + LModel
-    + ' ' + DEBUG_FLAG; //The debug flag to hang on the proc. until you attach the debugger...
+  var LArgs: TArray<string> := [
+    AProfile,
+    BuildProfileFolder(BuildImagesFolder(), AProfile),
+    LModel
+    {,DEBUG_FLAG}]; //The debug flag to hang on the proc. until you attach the debugger...
 
   var LStdOutLogPath := TPath.Combine(BuildProfileFolder(BuildImagesFolder(), AProfile), 'stdout.log');
   if TFile.Exists(LStdOutLogPath) then
@@ -277,18 +327,30 @@ begin
   end;
 
   var LSessionId := TDSSessionManager.GetThreadSession().SessionName;
-  TThread.CreateAnonymousThread(procedure() begin
-    var LResultCode := TExecCmdWin.ExecCmd(LCmd,
-      procedure(AText: string) begin
-        DSServer.BroadcastMessage(LChannel, LCallBackId,
-          TJSONObject.Create(TJSONPair.Create('pipe', AText)));
-        TFile.AppendAllText(LStdOutLogPath, AText);
-      end,
-      function(): boolean begin
-        Result := not LSessionPredicate(LSessionId);
-      end);
+  TThread.CreateAnonymousThread(
+    procedure()
+    var
+      LReader: TReader;
+      LWriter: TWriter;
+      LOutput: string;
+    begin
+      var LExec := TExecCmdService
+        .Cmd(PROC, LArgs)
+          .Run(LReader, LWriter, [TRedirect.stdout]);
 
-    ProcessTrainModelResult(AProfile, LSessionId, LChannel, LCallbackId, LResultCode);
+      repeat
+        LOutput := LReader();
+        if not LOutput.IsEmpty() then begin
+          DSServer.BroadcastMessage(LChannel, LCallBackId,
+            TJSONObject.Create(TJSONPair.Create('pipe', LOutput)));
+          TFile.AppendAllText(LStdOutLogPath, LOutput);
+        end;
+      until LOutput.IsEmpty() or not LSessionPredicate(LSessionId);
+
+      if LExec.IsAlive and not LSessionPredicate(LSessionId) then
+        LExec.Kill();
+
+      ProcessTrainModelResult(AProfile, LSessionId, LChannel, LCallbackId, LExec.Wait());
   end).Start();
 
   TDSSessionManager.Instance.AddSessionEvent(
@@ -332,10 +394,9 @@ begin
   //We keep the trained model up and send requests as needed.
   //Note: starting up this process may take to much time. We can keep it alive, though.
   var LProc := GetTrainedModelProc(AProfile);
-  var LWriter: TWriter;
-  var LReader: TReader;
+  var LReader := LProc.Reader;
+  var LWriter := LProc.Writer;  
 
-  LProc.Redirect(LReader, LWriter);
   LWriter('RUN');
   var LStdOut := LReader();
   if (LStdOut = 'WAITING') then begin
@@ -343,7 +404,7 @@ begin
     LStdOut := LReader();
     Result := LBuildResponse(LStdOut);
   end else
-    Result := LBuildResponse(String.Empty);
+    Result := LBuildResponse(LStdOut);
 end;
 
 end.

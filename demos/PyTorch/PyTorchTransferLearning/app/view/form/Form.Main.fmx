@@ -15,26 +15,7 @@ object MainForm: TMainForm
     Size.Width = 308.000000000000000000
     Size.Height = 609.000000000000000000
     Size.PlatformDefault = False
-    inherited ToolBar1: TToolBar [0]
-      Size.Width = 308.000000000000000000
-      Size.Height = 48.000000000000000000
-      inherited btnMenu: TSpeedButton
-        Position.X = 260.000000000000000000
-        Size.Width = 48.000000000000000000
-        Size.Height = 48.000000000000000000
-        OnClick = frmMenubtnMenuClick
-      end
-    end
-    inherited lbMenu: TListBox [1]
-      Position.X = 143.000000000000000000
-      Viewport.Width = 153.000000000000000000
-      Viewport.Height = 52.000000000000000000
-      inherited lblHost: TListBoxItem
-        Size.Width = 153.000000000000000000
-        OnClick = frmMenulblHostClick
-      end
-    end
-    inherited loContainer: TLayout [2]
+    inherited loContainer: TLayout
       Size.Width = 308.000000000000000000
       Size.Height = 561.000000000000000000
       inherited loCollapse: TLayout
@@ -82,6 +63,25 @@ object MainForm: TMainForm
             end
           end
         end
+      end
+    end
+    inherited ToolBar1: TToolBar
+      Size.Width = 308.000000000000000000
+      Size.Height = 48.000000000000000000
+      inherited btnMenu: TSpeedButton
+        Position.X = 260.000000000000000000
+        Size.Width = 48.000000000000000000
+        Size.Height = 48.000000000000000000
+        OnClick = frmMenubtnMenuClick
+      end
+    end
+    inherited lbMenu: TListBox
+      Position.X = 143.000000000000000000
+      Viewport.Width = 153.000000000000000000
+      Viewport.Height = 52.000000000000000000
+      inherited lblHost: TListBoxItem
+        Size.Width = 153.000000000000000000
+        OnClick = frmMenulblHostClick
       end
     end
   end

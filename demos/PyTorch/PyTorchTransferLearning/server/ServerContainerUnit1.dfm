@@ -1,7 +1,6 @@
 object ServerContainer1: TServerContainer1
   Height = 165
   Width = 410
-  PixelsPerInch = 96
   object DSServer1: TDSServer
     Left = 96
     Top = 11

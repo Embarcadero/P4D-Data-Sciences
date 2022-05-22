@@ -9,8 +9,9 @@ object TrainModelForm: TTrainModelForm
   FormFactor.Height = 480
   FormFactor.Orientations = [Landscape]
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
   OnClose = FormClose
-  OnDestroy = FormDestroy
+  OnCloseQuery = FormCloseQuery
   DesignerMasterStyle = 3
   object ToolBar1: TToolBar
     Size.Width = 336.000000000000000000
@@ -37,8 +38,8 @@ object TrainModelForm: TTrainModelForm
     Size.Height = 461.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 2
-    Viewport.Width = 336.000000000000000000
-    Viewport.Height = 461.000000000000000000
+    Viewport.Width = 328.000000000000000000
+    Viewport.Height = 453.000000000000000000
   end
   object btnTrain: TButton
     Align = Bottom

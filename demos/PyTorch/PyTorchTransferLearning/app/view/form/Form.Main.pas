@@ -218,7 +218,10 @@ end;
 procedure TMainForm.frmMenubtnTrainModelClick(Sender: TObject);
 begin
   var LForm := TTrainModelForm.Create(Self, frmMenu.ceProfile.Text);
-  LForm.Show();
+  LForm.ShowModal(procedure(AModalResult: TModalResult) begin
+    if ClientModule.TrainingClassClient.ContainsTrainedModel(frmMenu.ceProfile.Text) is TJSONTrue then
+      frmMenu.btnLiveRecognition.Enabled := true;
+  end);
 end;
 
 procedure TMainForm.frmMenulblHostClick(Sender: TObject);

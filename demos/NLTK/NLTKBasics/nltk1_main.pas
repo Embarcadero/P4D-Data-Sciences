@@ -47,8 +47,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure NumPy1AfterInstall(Sender: TObject);
-    procedure NumPy1UninstallError(Sender: TObject; AErrorMessage: string);
     procedure NumPy1BeforeInstall(Sender: TObject);
+    procedure NumPy1InstallError(Sender: TObject; AErrorMessage: string);
   private
     FTask: ITask;
     procedure UpdateInstallationStatus(const AStatus, ADescription: string);
@@ -173,7 +173,7 @@ begin
   UpdateInstallationStatus('NumPy', 'Installing package.');
 end;
 
-procedure TForm16.NumPy1UninstallError(Sender: TObject; AErrorMessage: string);
+procedure TForm16.NumPy1InstallError(Sender: TObject; AErrorMessage: string);
 begin
   UpdateInstallationStatus('NumPy', AErrorMessage);
 end;

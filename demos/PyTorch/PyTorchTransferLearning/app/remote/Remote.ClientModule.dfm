@@ -1,7 +1,6 @@
 object ClientModule: TClientModule
   Height = 271
   Width = 415
-  PixelsPerInch = 96
   object DSRestConnection1: TDSRestConnection
     Port = 8080
     LoginPrompt = False

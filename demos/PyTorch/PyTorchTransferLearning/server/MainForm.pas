@@ -36,7 +36,11 @@ implementation
 {$R *.fmx}
 
 uses
-  WinApi.Windows, Winapi.ShellApi, Datasnap.DSSession;
+  {$IFDEF MSWINDOWS}
+  WinApi.Windows,
+  Winapi.ShellApi,
+  {$ENDIF MSWINDOWS}
+  Datasnap.DSSession;
 
 procedure TForm1.ApplicationIdle(Sender: TObject; var Done: Boolean);
 begin

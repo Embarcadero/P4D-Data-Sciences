@@ -3,16 +3,19 @@
         <ProjectGuid>{401F15BF-2868-4DCF-8C08-558F3BFD30DF}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="app\ThumbsUpDownApp.dproj">
+        <Projects Include="install\ThumbsUpDownPythonInstall.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="server\ThumbsUpDownServer.dproj">
-            <Dependencies/>
+        <Projects Include="server\ThumbsUpDownServerGUI.dproj">
+            <Dependencies>train\trainmodelproc\ThumbsUpDownTrainModelProc.dproj;train\trainedmodelproc\ThumbsUpDownTrainedModelProc.dproj</Dependencies>
         </Projects>
         <Projects Include="train\trainmodelproc\ThumbsUpDownTrainModelProc.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="train\trainedmodelproc\ThumbsUpDownTrainedModelProc.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="app\ThumbsUpDownApp.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -23,23 +26,23 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="ThumbsUpDownApp">
-        <MSBuild Projects="app\ThumbsUpDownApp.dproj"/>
+    <Target Name="ThumbsUpDownPythonInstall">
+        <MSBuild Projects="install\ThumbsUpDownPythonInstall.dproj"/>
     </Target>
-    <Target Name="ThumbsUpDownApp:Clean">
-        <MSBuild Projects="app\ThumbsUpDownApp.dproj" Targets="Clean"/>
+    <Target Name="ThumbsUpDownPythonInstall:Clean">
+        <MSBuild Projects="install\ThumbsUpDownPythonInstall.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="ThumbsUpDownApp:Make">
-        <MSBuild Projects="app\ThumbsUpDownApp.dproj" Targets="Make"/>
+    <Target Name="ThumbsUpDownPythonInstall:Make">
+        <MSBuild Projects="install\ThumbsUpDownPythonInstall.dproj" Targets="Make"/>
     </Target>
-    <Target Name="ThumbsUpDownServer">
-        <MSBuild Projects="server\ThumbsUpDownServer.dproj"/>
+    <Target Name="ThumbsUpDownServerGUI" DependsOnTargets="ThumbsUpDownTrainModelProc;ThumbsUpDownTrainedModelProc">
+        <MSBuild Projects="server\ThumbsUpDownServerGUI.dproj"/>
     </Target>
-    <Target Name="ThumbsUpDownServer:Clean">
-        <MSBuild Projects="server\ThumbsUpDownServer.dproj" Targets="Clean"/>
+    <Target Name="ThumbsUpDownServerGUI:Clean" DependsOnTargets="ThumbsUpDownTrainModelProc:Clean;ThumbsUpDownTrainedModelProc:Clean">
+        <MSBuild Projects="server\ThumbsUpDownServerGUI.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="ThumbsUpDownServer:Make">
-        <MSBuild Projects="server\ThumbsUpDownServer.dproj" Targets="Make"/>
+    <Target Name="ThumbsUpDownServerGUI:Make" DependsOnTargets="ThumbsUpDownTrainModelProc:Make;ThumbsUpDownTrainedModelProc:Make">
+        <MSBuild Projects="server\ThumbsUpDownServerGUI.dproj" Targets="Make"/>
     </Target>
     <Target Name="ThumbsUpDownTrainModelProc">
         <MSBuild Projects="train\trainmodelproc\ThumbsUpDownTrainModelProc.dproj"/>
@@ -59,14 +62,23 @@
     <Target Name="ThumbsUpDownTrainedModelProc:Make">
         <MSBuild Projects="train\trainedmodelproc\ThumbsUpDownTrainedModelProc.dproj" Targets="Make"/>
     </Target>
+    <Target Name="ThumbsUpDownApp">
+        <MSBuild Projects="app\ThumbsUpDownApp.dproj"/>
+    </Target>
+    <Target Name="ThumbsUpDownApp:Clean">
+        <MSBuild Projects="app\ThumbsUpDownApp.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ThumbsUpDownApp:Make">
+        <MSBuild Projects="app\ThumbsUpDownApp.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="ThumbsUpDownApp;ThumbsUpDownServer;ThumbsUpDownTrainModelProc;ThumbsUpDownTrainedModelProc"/>
+        <CallTarget Targets="ThumbsUpDownPythonInstall;ThumbsUpDownServerGUI;ThumbsUpDownTrainModelProc;ThumbsUpDownTrainedModelProc;ThumbsUpDownApp"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="ThumbsUpDownApp:Clean;ThumbsUpDownServer:Clean;ThumbsUpDownTrainModelProc:Clean;ThumbsUpDownTrainedModelProc:Clean"/>
+        <CallTarget Targets="ThumbsUpDownPythonInstall:Clean;ThumbsUpDownServerGUI:Clean;ThumbsUpDownTrainModelProc:Clean;ThumbsUpDownTrainedModelProc:Clean;ThumbsUpDownApp:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="ThumbsUpDownApp:Make;ThumbsUpDownServer:Make;ThumbsUpDownTrainModelProc:Make;ThumbsUpDownTrainedModelProc:Make"/>
+        <CallTarget Targets="ThumbsUpDownPythonInstall:Make;ThumbsUpDownServerGUI:Make;ThumbsUpDownTrainModelProc:Make;ThumbsUpDownTrainedModelProc:Make;ThumbsUpDownApp:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

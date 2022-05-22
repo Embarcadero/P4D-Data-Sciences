@@ -1,0 +1,99 @@
+object Form2: TForm2
+  Left = 0
+  Top = 0
+  Caption = 'Python Environment Setup'
+  ClientHeight = 303
+  ClientWidth = 455
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnCloseQuery = FormCloseQuery
+  DesignerMasterStyle = 0
+  object mmLog: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Align = Client
+    Size.Width = 455.000000000000000000
+    Size.Height = 303.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 7
+    Viewport.Width = 451.000000000000000000
+    Viewport.Height = 299.000000000000000000
+  end
+  object PyEngine: TPythonEngine
+    AutoLoad = False
+    FatalAbort = False
+    FatalMsgDlg = False
+    IO = PythonGUIInputOutput1
+    Left = 233
+    Top = 24
+  end
+  object PyEmbeddedResEnvironment381: TPyEmbeddedResEnvironment38
+    BeforeSetup = PyEmbeddedResEnvironment381BeforeSetup
+    AfterSetup = PyEmbeddedResEnvironment381AfterSetup
+    AutoLoad = False
+    PythonVersion = '3.8'
+    PythonEngine = PyEngine
+    EnvironmentPath = 'python'
+    Left = 232
+    Top = 136
+  end
+  object PyNumPy: TNumPy
+    AutoImport = False
+    PythonEngine = PyEngine
+    PyEnvironment = PyEmbeddedResEnvironment381
+    ManagerKind = pip
+    AutoInstall = False
+    BeforeInstall = PyNumPyBeforeInstall
+    OnInstallError = PyNumPyInstallError
+    AfterInstall = PyNumPyAfterInstall
+    Left = 136
+    Top = 192
+  end
+  object PyOpenCV: TOpenCV
+    AutoImport = False
+    PythonEngine = PyEngine
+    PyEnvironment = PyEmbeddedResEnvironment381
+    ManagerKind = pip
+    AutoInstall = False
+    BeforeInstall = PyOpenCVBeforeInstall
+    OnInstallError = PyOpenCVInstallError
+    AfterInstall = PyOpenCVAfterInstall
+    Left = 320
+    Top = 192
+  end
+  object PyTorch: TPyTorch
+    AutoImport = False
+    PythonEngine = PyEngine
+    PyEnvironment = PyEmbeddedResEnvironment381
+    ManagerKind = pip
+    Managers.Pip.InstallOptions.ExtraIndexUrl = 'https://download.pytorch.org/whl/cu113'
+    AutoInstall = False
+    BeforeInstall = PyTorchBeforeInstall
+    OnInstallError = PyTorchInstallError
+    AfterInstall = PyTorchAfterInstall
+    Left = 264
+    Top = 192
+  end
+  object PyTorchVision: TTorchVision
+    AutoImport = False
+    PythonEngine = PyEngine
+    PyEnvironment = PyEmbeddedResEnvironment381
+    ManagerKind = pip
+    Managers.Pip.InstallOptions.ExtraIndexUrl = 'https://download.pytorch.org/whl/cu113'
+    AutoInstall = False
+    BeforeInstall = PyTorchVisionBeforeInstall
+    OnInstallError = PyTorchVisionInstallError
+    AfterInstall = PyTorchVisionAfterInstall
+    Left = 200
+    Top = 192
+  end
+  object PythonGUIInputOutput1: TPythonGUIInputOutput
+    UnicodeIO = True
+    RawOutput = False
+    Output = mmLog
+    Left = 232
+    Top = 80
+  end
+end

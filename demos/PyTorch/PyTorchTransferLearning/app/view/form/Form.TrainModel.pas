@@ -16,12 +16,16 @@ type
     btnTrain: TButton;
     StyleBook1: TStyleBook;
     procedure btnTrainClick(Sender: TObject);
-    procedure FormDestroy(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure FormCreate(Sender: TObject);
   private
     FProfile: string;
     FCallback: TDSRestClientCallback;
     function GetCallBackChannel(): TDSRestClientChannel;
+
+    procedure DoOnDisconnect(Sender: TObject);
+    procedure DoOnChannelChange(const EventItem: TDSRESTChannelEventItem);
   public
     constructor Create(AOwner: TComponent; const AProfile: string); reintroduce;
     property Profile: string read FProfile;
@@ -42,6 +46,9 @@ begin
   var LMsg: string;
   var LResult := ClientModule.TrainingClassClient.TrainModel(FProfile, LMsg);
   var LResultStr: string;
+
+  if Assigned(FCallback) then
+    GetCallBackChannel().UnregisterCallback(FCallback);
 
   if LResult.TryGetValue<string>('error', LResultStr) then
     ShowMessage(LResultStr);
@@ -73,7 +80,7 @@ begin
         Result := true;
       end);
 
-     GetCallBackChannel.RegisterCallback(FCallback);
+     GetCallBackChannel().RegisterCallback(FCallback);
   end;
 end;
 
@@ -84,15 +91,47 @@ begin
   lbProfile.Text := 'Profile: ' + AProfile;
 end;
 
+procedure TTrainModelForm.DoOnChannelChange(
+  const EventItem: TDSRESTChannelEventItem);
+begin
+  if (EventItem.CallbackId = FCallback.CallbackId) then
+    case EventItem.EventType of
+      rChannelCreate: ;
+      rChannelClose: mmPipe.Lines.Add('Callback channel was closed');
+      rChannelClosedByServer: mmPipe.Lines.Add('Callback channel was closed by server');
+      rCallbackAdded: ;
+      rCallbackRemoved: mmPipe.Lines.Add('Callback channel was removed');
+    end;
+end;
+
+procedure TTrainModelForm.DoOnDisconnect(Sender: TObject);
+begin
+  ShowMessage('You have been disconnected from the pipe. Try to reconnect.');
+end;
+
 procedure TTrainModelForm.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := TCloseAction.caFree;
 end;
 
-procedure TTrainModelForm.FormDestroy(Sender: TObject);
+procedure TTrainModelForm.FormCloseQuery(Sender: TObject;
+  var CanClose: Boolean);
 begin
-  if Assigned(FCallback) then begin
-    GetCallBackChannel.UnregisterCallback(FCallback);
+  try
+    if Assigned(FCallback) then begin
+      GetCallBackChannel().UnregisterCallback(FCallback);
+    end;
+  except
+    on E: Exception do
+      ShowMessage(E.Message);
+  end;
+end;
+
+procedure TTrainModelForm.FormCreate(Sender: TObject);
+begin
+  with GetCallBackChannel() do begin
+    OnDisconnect := DoOnDisconnect;
+    OnChannelStateChange := DoOnChannelChange;
   end;
 end;
 

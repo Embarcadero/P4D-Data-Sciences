@@ -1,130 +1,58 @@
 object PyComps: TPyComps
-  Height = 317
+  Height = 267
   Width = 389
-  PixelsPerInch = 96
   object PyEngine: TPythonEngine
+    AutoLoad = False
     DllName = 'python39.dll'
     APIVersion = 1013
     RegVersion = '3.9'
     UseLastKnownVersion = False
     IO = PyIO
     Left = 169
-    Top = 56
+    Top = 16
   end
   object PyIO: TPythonInputOutput
     UnicodeIO = False
     RawOutput = False
     Left = 168
-    Top = 120
+    Top = 80
   end
-  object PyTorchVision: TTorchVision
+  object PyEmbeddedResEnvironment381: TPyEmbeddedResEnvironment38
+    AutoLoad = True
+    PythonVersion = '3.8'
     PythonEngine = PyEngine
-    ManagerKind = pip
-    Managers.Pip.InstallOptions.NoDeps = False
-    Managers.Pip.InstallOptions.Pre = False
-    Managers.Pip.InstallOptions.Upgrade = False
-    Managers.Pip.InstallOptions.ForceReinstall = False
-    Managers.Pip.InstallOptions.IgnoreInstalled = False
-    Managers.Pip.InstallOptions.IgnoreRequiresPython = False
-    Managers.Pip.InstallOptions.NoBuildIsolation = False
-    Managers.Pip.InstallOptions.UsePep517 = False
-    Managers.Pip.InstallOptions.Compile = False
-    Managers.Pip.InstallOptions.NoCompile = False
-    Managers.Pip.InstallOptions.NoWarnScriptLocation = False
-    Managers.Pip.InstallOptions.NoWarnConflicts = False
-    Managers.Pip.InstallOptions.NoBinary = False
-    Managers.Pip.InstallOptions.OnlyBinary = False
-    Managers.Pip.InstallOptions.PreferBinary = False
-    Managers.Pip.InstallOptions.RequireHashes = False
-    Managers.Pip.InstallOptions.ProgressBar = False
-    Managers.Pip.InstallOptions.NoClean = False
-    Managers.Pip.InstallOptions.NoIndex = False
-    Managers.Pip.InstallOptions.FindLinks = 'https://download.pytorch.org/whl/torch_stable.html'
-    Managers.Pip.UninstallOptions.AskForConfirmation = False
-    AutoInstall = False
-    Left = 138
-    Top = 184
-  end
-  object PyTorch: TPyTorch
-    PythonEngine = PyEngine
-    ManagerKind = pip
-    Managers.Pip.InstallOptions.NoDeps = False
-    Managers.Pip.InstallOptions.Pre = False
-    Managers.Pip.InstallOptions.Upgrade = False
-    Managers.Pip.InstallOptions.ForceReinstall = False
-    Managers.Pip.InstallOptions.IgnoreInstalled = False
-    Managers.Pip.InstallOptions.IgnoreRequiresPython = False
-    Managers.Pip.InstallOptions.NoBuildIsolation = False
-    Managers.Pip.InstallOptions.UsePep517 = False
-    Managers.Pip.InstallOptions.Compile = False
-    Managers.Pip.InstallOptions.NoCompile = False
-    Managers.Pip.InstallOptions.NoWarnScriptLocation = False
-    Managers.Pip.InstallOptions.NoWarnConflicts = False
-    Managers.Pip.InstallOptions.NoBinary = False
-    Managers.Pip.InstallOptions.OnlyBinary = False
-    Managers.Pip.InstallOptions.PreferBinary = False
-    Managers.Pip.InstallOptions.RequireHashes = False
-    Managers.Pip.InstallOptions.ProgressBar = False
-    Managers.Pip.InstallOptions.NoClean = False
-    Managers.Pip.InstallOptions.NoIndex = False
-    Managers.Pip.InstallOptions.FindLinks = 'https://download.pytorch.org/whl/torch_stable.html'
-    Managers.Pip.UninstallOptions.AskForConfirmation = False
-    AutoInstall = False
-    Left = 202
-    Top = 184
+    EnvironmentPath = 'python'
+    Left = 168
+    Top = 144
   end
   object PyNumPy: TNumPy
     PythonEngine = PyEngine
+    PyEnvironment = PyEmbeddedResEnvironment381
     ManagerKind = pip
-    Managers.Pip.InstallOptions.NoDeps = False
-    Managers.Pip.InstallOptions.Pre = False
-    Managers.Pip.InstallOptions.Upgrade = False
-    Managers.Pip.InstallOptions.ForceReinstall = False
-    Managers.Pip.InstallOptions.IgnoreInstalled = False
-    Managers.Pip.InstallOptions.IgnoreRequiresPython = False
-    Managers.Pip.InstallOptions.NoBuildIsolation = False
-    Managers.Pip.InstallOptions.UsePep517 = False
-    Managers.Pip.InstallOptions.Compile = False
-    Managers.Pip.InstallOptions.NoCompile = False
-    Managers.Pip.InstallOptions.NoWarnScriptLocation = False
-    Managers.Pip.InstallOptions.NoWarnConflicts = False
-    Managers.Pip.InstallOptions.NoBinary = False
-    Managers.Pip.InstallOptions.OnlyBinary = False
-    Managers.Pip.InstallOptions.PreferBinary = False
-    Managers.Pip.InstallOptions.RequireHashes = False
-    Managers.Pip.InstallOptions.ProgressBar = False
-    Managers.Pip.InstallOptions.NoClean = False
-    Managers.Pip.InstallOptions.NoIndex = False
-    Managers.Pip.UninstallOptions.AskForConfirmation = False
-    AutoInstall = False
-    Left = 63
-    Top = 184
+    Left = 72
+    Top = 200
   end
   object PyOpenCV: TOpenCV
     PythonEngine = PyEngine
+    PyEnvironment = PyEmbeddedResEnvironment381
     ManagerKind = pip
-    Managers.Pip.InstallOptions.NoDeps = False
-    Managers.Pip.InstallOptions.Pre = False
-    Managers.Pip.InstallOptions.Upgrade = False
-    Managers.Pip.InstallOptions.ForceReinstall = False
-    Managers.Pip.InstallOptions.IgnoreInstalled = False
-    Managers.Pip.InstallOptions.IgnoreRequiresPython = False
-    Managers.Pip.InstallOptions.NoBuildIsolation = False
-    Managers.Pip.InstallOptions.UsePep517 = False
-    Managers.Pip.InstallOptions.Compile = False
-    Managers.Pip.InstallOptions.NoCompile = False
-    Managers.Pip.InstallOptions.NoWarnScriptLocation = False
-    Managers.Pip.InstallOptions.NoWarnConflicts = False
-    Managers.Pip.InstallOptions.NoBinary = False
-    Managers.Pip.InstallOptions.OnlyBinary = False
-    Managers.Pip.InstallOptions.PreferBinary = False
-    Managers.Pip.InstallOptions.RequireHashes = False
-    Managers.Pip.InstallOptions.ProgressBar = False
-    Managers.Pip.InstallOptions.NoClean = False
-    Managers.Pip.InstallOptions.NoIndex = False
-    Managers.Pip.UninstallOptions.AskForConfirmation = False
-    AutoInstall = False
-    Left = 263
-    Top = 184
+    Left = 256
+    Top = 200
+  end
+  object PyTorch: TPyTorch
+    PythonEngine = PyEngine
+    PyEnvironment = PyEmbeddedResEnvironment381
+    ManagerKind = pip
+    Managers.Pip.InstallOptions.ExtraIndexUrl = 'https://download.pytorch.org/whl/cu113'
+    Left = 200
+    Top = 200
+  end
+  object PyTorchVision: TTorchVision
+    PythonEngine = PyEngine
+    PyEnvironment = PyEmbeddedResEnvironment381
+    ManagerKind = pip
+    Managers.Pip.InstallOptions.ExtraIndexUrl = 'https://download.pytorch.org/whl/cu113'
+    Left = 136
+    Top = 200
   end
 end

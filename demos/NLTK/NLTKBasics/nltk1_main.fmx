@@ -171,8 +171,8 @@ object Form16: TForm16
     ManagerKind = pip
     AutoInstall = False
     BeforeInstall = NumPy1BeforeInstall
+    OnInstallError = NumPy1InstallError
     AfterInstall = NumPy1AfterInstall
-    OnUninstallError = NumPy1UninstallError
     Left = 192
     Top = 208
   end

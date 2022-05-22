@@ -1,7 +1,7 @@
-// 
+//
 // Created by the DataSnap proxy generator.
-// 12/6/2021 7:52:19 AM
-// 
+// 21/05/2022 15:06:46
+//
 
 unit Remote.ClientClasses;
 
@@ -19,6 +19,8 @@ type
     FClearCommand: TDSRestCommand;
     FTrainModelCommand: TDSRestCommand;
     FTrainModelCommand_Cache: TDSRestCommand;
+    FContainsTrainedModelCommand: TDSRestCommand;
+    FContainsTrainedModelCommand_Cache: TDSRestCommand;
     FRecognizeCommand: TDSRestCommand;
     FRecognizeCommand_Cache: TDSRestCommand;
   public
@@ -32,6 +34,8 @@ type
     procedure Clear(AProfile: string; ATrainingClass: string);
     function TrainModel(AProfile: string; const ARequestFilter: string = ''): TJSONValue;
     function TrainModel_Cache(AProfile: string; const ARequestFilter: string = ''): IDSRestCachedJSONValue;
+    function ContainsTrainedModel(AProfile: string; const ARequestFilter: string = ''): TJSONValue;
+    function ContainsTrainedModel_Cache(AProfile: string; const ARequestFilter: string = ''): IDSRestCachedJSONValue;
     function Recognize(AProfile: string; AImage: TStream; const ARequestFilter: string = ''): TJSONValue;
     function Recognize_Cache(AProfile: string; AImage: TStream; const ARequestFilter: string = ''): IDSRestCachedJSONValue;
   end;
@@ -78,6 +82,18 @@ const
   );
 
   TTrainingClass_TrainModel_Cache: array [0..1] of TDSRestParameterMetaData =
+  (
+    (Name: 'AProfile'; Direction: 1; DBXType: 26; TypeName: 'string'),
+    (Name: ''; Direction: 4; DBXType: 26; TypeName: 'String')
+  );
+
+  TTrainingClass_ContainsTrainedModel: array [0..1] of TDSRestParameterMetaData =
+  (
+    (Name: 'AProfile'; Direction: 1; DBXType: 26; TypeName: 'string'),
+    (Name: ''; Direction: 4; DBXType: 37; TypeName: 'TJSONValue')
+  );
+
+  TTrainingClass_ContainsTrainedModel_Cache: array [0..1] of TDSRestParameterMetaData =
   (
     (Name: 'AProfile'; Direction: 1; DBXType: 26; TypeName: 'string'),
     (Name: ''; Direction: 4; DBXType: 26; TypeName: 'String')
@@ -201,6 +217,34 @@ begin
   Result := TDSRestCachedJSONValue.Create(FTrainModelCommand_Cache.Parameters[1].Value.GetString);
 end;
 
+function TTrainingClassClient.ContainsTrainedModel(AProfile: string; const ARequestFilter: string): TJSONValue;
+begin
+  if FContainsTrainedModelCommand = nil then
+  begin
+    FContainsTrainedModelCommand := FConnection.CreateCommand;
+    FContainsTrainedModelCommand.RequestType := 'GET';
+    FContainsTrainedModelCommand.Text := 'TTrainingClass.ContainsTrainedModel';
+    FContainsTrainedModelCommand.Prepare(TTrainingClass_ContainsTrainedModel);
+  end;
+  FContainsTrainedModelCommand.Parameters[0].Value.SetWideString(AProfile);
+  FContainsTrainedModelCommand.Execute(ARequestFilter);
+  Result := TJSONValue(FContainsTrainedModelCommand.Parameters[1].Value.GetJSONValue(FInstanceOwner));
+end;
+
+function TTrainingClassClient.ContainsTrainedModel_Cache(AProfile: string; const ARequestFilter: string): IDSRestCachedJSONValue;
+begin
+  if FContainsTrainedModelCommand_Cache = nil then
+  begin
+    FContainsTrainedModelCommand_Cache := FConnection.CreateCommand;
+    FContainsTrainedModelCommand_Cache.RequestType := 'GET';
+    FContainsTrainedModelCommand_Cache.Text := 'TTrainingClass.ContainsTrainedModel';
+    FContainsTrainedModelCommand_Cache.Prepare(TTrainingClass_ContainsTrainedModel_Cache);
+  end;
+  FContainsTrainedModelCommand_Cache.Parameters[0].Value.SetWideString(AProfile);
+  FContainsTrainedModelCommand_Cache.ExecuteCache(ARequestFilter);
+  Result := TDSRestCachedJSONValue.Create(FContainsTrainedModelCommand_Cache.Parameters[1].Value.GetString);
+end;
+
 function TTrainingClassClient.Recognize(AProfile: string; AImage: TStream; const ARequestFilter: string): TJSONValue;
 begin
   if FRecognizeCommand = nil then
@@ -250,9 +294,12 @@ begin
   FClearCommand.DisposeOf;
   FTrainModelCommand.DisposeOf;
   FTrainModelCommand_Cache.DisposeOf;
+  FContainsTrainedModelCommand.DisposeOf;
+  FContainsTrainedModelCommand_Cache.DisposeOf;
   FRecognizeCommand.DisposeOf;
   FRecognizeCommand_Cache.DisposeOf;
   inherited;
 end;
 
 end.
+

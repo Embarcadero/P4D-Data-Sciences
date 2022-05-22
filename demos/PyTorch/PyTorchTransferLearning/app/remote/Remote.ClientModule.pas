@@ -74,12 +74,20 @@ end;
 
 function TClientModule.GetHost: string;
 begin
-  Result := DSRestConnection1.Host;
+  Result := DSRestConnection1.Host + ':' + DSRestConnection1.Port.ToString();
 end;
 
 procedure TClientModule.SetHost(const AHost: string);
+var
+  LHostAndPort: TArray<string>;
 begin
-  DSRestConnection1.Host := AHost;
+  LHostAndPort := AHost.Split([':']);
+  if Length(LHostAndPort) = 1 then
+    DSRestConnection1.Host := LHostAndPort[0]
+  else if Length(LHostAndPort) = 2 then begin
+    DSRestConnection1.Host := LHostAndPort[0];
+    DSRestConnection1.Port := LHostAndPort[1].ToInteger();
+  end;
 end;
 
 end.
