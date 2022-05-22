@@ -84,7 +84,7 @@ end;
 procedure TPipeIO.InternalWrite(const AText: string);
 begin
   {$IFDEF MSWINDOWS}
-  var LText := AnsiString(AText);
+  var LText := AnsiString(AText + sLineBreak);
   var LBytesWritten: cardinal;
   WriteFile(FStdOut, LText[1], Length(LText), LBytesWritten, nil);
   {$ELSE}
