@@ -378,16 +378,17 @@ begin
   end;
 
   var LBuildResponse := function(const AStdOut: string): TJSONValue begin
-    var LProb: extended := -1;
     Result := TJSONObject.Create();
-
-    with TJSONObject(Result) do begin
-      if (AStdOut.StartsWith('ERROR')) then begin
-        AddPair('error', AStdOut);
-      end else if TryStrToFloat(AStdOut, LProb) then begin
-        AddPair('success', 'Image classified');
+    var LResponse := TJSONObject.ParseJSONValue(AStdOut);
+    if LResponse is TJSONObject then begin
+      var LValue: string;
+      if TJSONObject(LResponse).TryGetValue<string>('classification', LValue) then begin
+        TJSONObject(Result).AddPair('success', 'Image classified');
+        TJSONObject(Result).AddPair('value', LValue.ToDouble());
+      end else if TJSONObject(LResponse).TryGetValue<string>('error', LValue) then begin
+        TJSONObject(Result).AddPair('error', LValue);
+        TJSONObject(Result).AddPair('value', 0);
       end;
-      AddPair('value', LProb);
     end;
   end;
 
@@ -397,14 +398,13 @@ begin
   var LReader := LProc.Reader;
   var LWriter := LProc.Writer;  
 
-  LWriter('RUN');
-  var LStdOut := LReader();
-  if (LStdOut = 'WAITING') then begin
-    LWriter(LImagePath);
-    LStdOut := LReader();
-    Result := LBuildResponse(LStdOut);
-  end else
-    Result := LBuildResponse(LStdOut);
+  var LInput := TJSONObject.Create(TJSONPair.Create('classify', LImagePath));
+  try
+    LWriter(LInput.ToJSON());
+  finally
+    LInput.Free();
+  end;
+  Result := LBuildResponse(LReader());
 end;
 
 end.
