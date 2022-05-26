@@ -5,11 +5,10 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   System.Zip, System.Threading, FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics,
-  FMX.Dialogs, FMX.Memo.Types, NumPy, PythonEngine, FMX.PythonGUIInputOutput,
-  PyEnvironment.AddOn, PyEnvironment.AddOn.EnsurePip, PyEnvironment,
+  FMX.Dialogs, FMX.Memo.Types, NumPy, PythonEngine, PyEnvironment,
   PyEnvironment.Embeddable, PyEnvironment.Embeddable.Res,
-  PyEnvironment.Embeddable.Res.Python310, PyCommon, PyModule, PyPackage, NLTK,
-  FMX.Layouts, FMX.ListBox, FMX.ScrollBox, FMX.Memo, FMX.StdCtrls,
+  PyEnvironment.Embeddable.Res.Python310, PyCommon, PyModule, PyPackage,
+  NLTK, FMX.Layouts, FMX.ListBox, FMX.ScrollBox, FMX.Memo, FMX.StdCtrls,
   FMX.Controls.Presentation;
 
 type
@@ -18,17 +17,15 @@ type
     PyEmbeddedResEnvironment3101: TPyEmbeddedResEnvironment310;
     PythonEngine1: TPythonEngine;
     Button1: TButton;
-    PythonGUIInputOutput1: TPythonGUIInputOutput;
     StatusBar1: TStatusBar;
     lbMsg: TLabel;
     lbDesc: TLabel;
     Memo1: TMemo;
     ListBox1: TListBox;
-    PythonType1: TPythonType;
     ListBox2: TListBox;
     ListBox3: TListBox;
-    NumPy1: TNumPy;
     AniIndicator1: TAniIndicator;
+    NumPy1: TNumPy;
     procedure Button1Click(Sender: TObject);
     procedure PyEmbeddedResEnvironment3101AfterActivate(Sender: TObject;
       const APythonVersion: string; const AActivated: Boolean);
