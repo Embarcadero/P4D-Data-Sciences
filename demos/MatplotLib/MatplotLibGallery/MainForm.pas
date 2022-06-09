@@ -18,7 +18,9 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Memo.Types,
   PyCommon, PyModule, MatplotLib, PythonEngine, FMX.PythonGUIInputOutput,
   FMX.Controls.Presentation, FMX.ScrollBox, FMX.Memo, NumPy, FMX.StdCtrls,
-  FMX.Layouts, PyPackage, System.Generics.Collections;
+  FMX.Layouts, PyPackage, System.Generics.Collections, PyEnvironment,
+  PyEnvironment.Embeddable, PyEnvironment.Embeddable.Res,
+  PyEnvironment.Embeddable.Res.Python310;
 
 type
   TForm1 = class(TForm)
@@ -31,6 +33,7 @@ type
     btnScatterMasked: TButton;
     btnScatterSymbol: TButton;
     btnInterpolations: TButton;
+    PyEmbeddedResEnvironment3101: TPyEmbeddedResEnvironment310;
     procedure btnScatterMaskedClick(Sender: TObject);
     procedure btnScatterSymbolClick(Sender: TObject);
     procedure btnInterpolationsClick(Sender: TObject);

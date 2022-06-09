@@ -54,7 +54,15 @@ object Form1: TForm1
       end
     end
   end
+  object PyEmbeddedResEnvironment3101: TPyEmbeddedResEnvironment310
+    AutoLoad = True
+    PythonVersion = '3.10'
+    PythonEngine = PythonEngine1
+    Left = 400
+    Top = 160
+  end
   object PythonEngine1: TPythonEngine
+    AutoLoad = False
     IO = PythonGUIInputOutput1
     Left = 440
     Top = 24
@@ -68,11 +76,15 @@ object Form1: TForm1
   end
   object MatplotLib1: TMatplotLib
     PythonEngine = PythonEngine1
+    PyEnvironment = PyEmbeddedResEnvironment3101
+    ManagerKind = pip
     Left = 560
     Top = 80
   end
   object NumPy1: TNumPy
     PythonEngine = PythonEngine1
+    PyEnvironment = PyEmbeddedResEnvironment3101
+    ManagerKind = pip
     Left = 560
     Top = 136
   end
