@@ -1,0 +1,7 @@
+python4delphi @ https://github.com/Embarcadero/python4delphi
+python4delphi @ https://github.com/Embarcadero/python4delphi.git
+python4delphi @ git+https://github.com/Embarcadero/python4delphi.git@master
+python4delphi @ git+https://github.com/Embarcadero/python4delphi.git
+git+https://github.com/Embarcadero/python4delphi@master
+git+https://github.com/Embarcadero/Lightweight-Python-Wrappers.git@main#egg=Lightweight-Python-Wrappers
+git+https://github.com/Embarcadero/PythonEnviroments.git@main#egg=PythonEnviroments

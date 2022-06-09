@@ -138,6 +138,7 @@ object Form16: TForm16
     AutoLoad = False
     PythonVersion = '3.10'
     PythonEngine = PythonEngine1
+    Async = False
     OnZipProgress = PyEmbeddedResEnvironment3101ZipProgress
     Left = 192
     Top = 296
@@ -146,23 +147,6 @@ object Form16: TForm16
     AutoLoad = False
     Left = 368
     Top = 128
-  end
-  object PythonGUIInputOutput1: TPythonGUIInputOutput
-    UnicodeIO = True
-    RawOutput = False
-    Left = 368
-    Top = 208
-  end
-  object PythonType1: TPythonType
-    Engine = PythonEngine1
-    Prefix = 'Create'
-    Services.Basic = [bsRepr, bsStr, bsGetAttrO, bsSetAttrO]
-    Services.InplaceNumber = []
-    Services.Number = []
-    Services.Sequence = []
-    Services.Mapping = []
-    Left = 368
-    Top = 296
   end
   object NumPy1: TNumPy
     AutoImport = False
