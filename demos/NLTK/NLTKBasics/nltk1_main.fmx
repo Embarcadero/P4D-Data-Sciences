@@ -2,8 +2,8 @@ object Form16: TForm16
   Left = 0
   Top = 0
   Caption = 'NLTK via Python4Delphi'
-  ClientHeight = 417
-  ClientWidth = 474
+  ClientHeight = 418
+  ClientWidth = 475
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -11,10 +11,11 @@ object Form16: TForm16
   OnCloseQuery = FormCloseQuery
   DesignerMasterStyle = 0
   object Button1: TButton
+    Anchors = [akTop, akRight]
     Enabled = False
-    Position.X = 10.000000000000000000
-    Position.Y = 66.000000000000000000
-    Size.Width = 95.000000000000000000
+    Position.X = 393.000000000000000000
+    Position.Y = 22.000000000000000000
+    Size.Width = 74.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 4
@@ -33,9 +34,9 @@ object Form16: TForm16
     end
   end
   object StatusBar1: TStatusBar
-    Position.Y = 395.000000000000000000
+    Position.Y = 396.000000000000000000
     ShowSizeGrip = True
-    Size.Width = 474.000000000000000000
+    Size.Width = 475.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 3
@@ -51,7 +52,7 @@ object Form16: TForm16
     object lbDesc: TLabel
       Align = Client
       Margins.Right = 25.000000000000000000
-      Size.Width = 326.000000000000000000
+      Size.Width = 327.000000000000000000
       Size.Height = 22.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 3
@@ -66,19 +67,19 @@ object Form16: TForm16
     Anchors = [akLeft, akTop, akRight]
     Position.X = 10.000000000000000000
     Position.Y = 8.000000000000000000
-    Size.Width = 456.000000000000000000
+    Size.Width = 375.000000000000000000
     Size.Height = 50.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 11
-    Viewport.Width = 452.000000000000000000
+    Viewport.Width = 371.000000000000000000
     Viewport.Height = 46.000000000000000000
   end
-  object ListBox1: TListBox
+  object lbTokens: TListBox
     Anchors = [akLeft, akTop, akBottom]
     Position.X = 8.000000000000000000
-    Position.Y = 96.000000000000000000
+    Position.Y = 87.000000000000000000
     Size.Width = 137.000000000000000000
-    Size.Height = 291.000000000000000000
+    Size.Height = 300.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     DisableFocusEffect = True
@@ -86,14 +87,14 @@ object Form16: TForm16
     DefaultItemStyles.GroupHeaderStyle = ''
     DefaultItemStyles.GroupFooterStyle = ''
     Viewport.Width = 133.000000000000000000
-    Viewport.Height = 287.000000000000000000
+    Viewport.Height = 296.000000000000000000
   end
-  object ListBox2: TListBox
+  object lbTagged: TListBox
     Anchors = [akLeft, akTop, akBottom]
     Position.X = 153.000000000000000000
-    Position.Y = 96.000000000000000000
+    Position.Y = 87.000000000000000000
     Size.Width = 144.000000000000000000
-    Size.Height = 291.000000000000000000
+    Size.Height = 300.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 19
     DisableFocusEffect = True
@@ -101,22 +102,40 @@ object Form16: TForm16
     DefaultItemStyles.GroupHeaderStyle = ''
     DefaultItemStyles.GroupFooterStyle = ''
     Viewport.Width = 140.000000000000000000
-    Viewport.Height = 287.000000000000000000
+    Viewport.Height = 296.000000000000000000
   end
-  object ListBox3: TListBox
-    Anchors = [akLeft, akTop, akBottom]
+  object lbEntities: TListBox
+    Anchors = [akLeft, akTop, akRight, akBottom]
     Position.X = 305.000000000000000000
-    Position.Y = 96.000000000000000000
-    Size.Width = 160.000000000000000000
-    Size.Height = 291.000000000000000000
+    Position.Y = 87.000000000000000000
+    Size.Width = 161.000000000000000000
+    Size.Height = 301.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 20
     DisableFocusEffect = True
     DefaultItemStyles.ItemStyle = ''
     DefaultItemStyles.GroupHeaderStyle = ''
     DefaultItemStyles.GroupFooterStyle = ''
-    Viewport.Width = 156.000000000000000000
-    Viewport.Height = 287.000000000000000000
+    Viewport.Width = 157.000000000000000000
+    Viewport.Height = 297.000000000000000000
+  end
+  object Label1: TLabel
+    Position.X = 16.000000000000000000
+    Position.Y = 62.000000000000000000
+    Text = 'Tokens'
+    TabOrder = 23
+  end
+  object Label3: TLabel
+    Position.X = 161.000000000000000000
+    Position.Y = 62.000000000000000000
+    Text = 'Tagged'
+    TabOrder = 22
+  end
+  object Label4: TLabel
+    Position.X = 313.000000000000000000
+    Position.Y = 62.000000000000000000
+    Text = 'Entities'
+    TabOrder = 21
   end
   object NLTK1: TNLTK
     AutoImport = False
@@ -138,7 +157,6 @@ object Form16: TForm16
     AutoLoad = False
     PythonVersion = '3.10'
     PythonEngine = PythonEngine1
-    Async = False
     OnZipProgress = PyEmbeddedResEnvironment3101ZipProgress
     Left = 192
     Top = 296
