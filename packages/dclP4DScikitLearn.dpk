@@ -26,7 +26,7 @@ package dclP4DScikitLearn;
 {$IMAGEBASE $400000}
 {$DEFINE RELEASE}
 {$ENDIF IMPLICITBUILDING}
-{$DESCRIPTION 'P4D AI&ML extension for Python packages - Scikit-learn'}
+{$DESCRIPTION 'P4D Data Sciences - Scikit-Learn'}
 {$LIBSUFFIX AUTO}
 {$DESIGNONLY}
 {$IMPLICITBUILD ON}
