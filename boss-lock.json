@@ -1,0 +1,30 @@
+{
+	"hash": "d41d8cd98f00b204e9800998ecf8427e",
+	"updated": "2022-06-08T17:04:13.2794469-07:00",
+	"installedModules": {
+		"https://github.com/embarcadero/lightweight-python-wrappers": {
+			"name": "lightweight-python-wrappers",
+			"version": "v0.0.1-alpha",
+			"hash": "e59df8a8341f94e78b685c96ee301183",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"https://github.com/embarcadero/python4delphi": {
+			"name": "python4delphi",
+			"version": "1.1",
+			"hash": "e3651527eab7f1eac8adac7917c6f5e1",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"https://github.com/embarcadero/pythonenviroments": {
+			"name": "pythonenviroments",
+			"version": "v0.0.1-alpha",
+			"hash": "265ab3f33b5fd70f289ff7bfa2dd380e",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		}
+	}
+}

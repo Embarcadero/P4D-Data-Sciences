@@ -1,0 +1,13 @@
+{
+	"name": "P4D-Data-Sciences",
+	"description": "A collection of lightweight Python wrappers based on Python4Delphi simplifying Data Sciences development with Delphi",
+	"version": "1.0.0",
+	"homepage": "https://github.com/Embarcadero/P4D-Data-Sciences",
+	"mainsrc": "./src",
+	"projects": [],
+	"dependencies": {
+		"https://github.com/embarcadero/lightweight-python-wrappers": "^v0.0.1-alpha",
+		"https://github.com/embarcadero/python4delphi": "^1.1",
+		"https://github.com/embarcadero/pythonenviroments": "^v0.0.1-alpha"
+	}
+}
