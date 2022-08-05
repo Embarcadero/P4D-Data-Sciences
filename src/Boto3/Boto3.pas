@@ -57,7 +57,7 @@ procedure TBoto3.Prepare(const AModel: TPyPackageModel);
 begin
   inherited;
   with AModel do begin
-    PackageName := 'Boto3';
+    PackageName := 'boto3';
     //NumPy from PIP
     PackageManagers.Add(
       TPyPackageManagerKind.pip,

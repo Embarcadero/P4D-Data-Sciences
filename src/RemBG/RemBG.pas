@@ -57,7 +57,7 @@ procedure TRemBG.Prepare(const AModel: TPyPackageModel);
 begin
   inherited;
   with AModel do begin
-    PackageName := 'RemBG';
+    PackageName := 'rembg';
     //NumPy from PIP
     PackageManagers.Add(
       TPyPackageManagerKind.pip,

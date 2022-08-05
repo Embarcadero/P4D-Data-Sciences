@@ -57,7 +57,7 @@ procedure TKeras.Prepare(const AModel: TPyPackageModel);
 begin
   inherited;
   with AModel do begin
-    PackageName := 'Keras';
+    PackageName := 'keras';
     //NumPy from PIP
     PackageManagers.Add(
       TPyPackageManagerKind.pip,

@@ -57,7 +57,7 @@ procedure TMoviePy.Prepare(const AModel: TPyPackageModel);
 begin
   inherited;
   with AModel do begin
-    PackageName := 'MoviePy';
+    PackageName := 'moviepy';
     //NumPy from PIP
     PackageManagers.Add(
       TPyPackageManagerKind.pip,

@@ -57,7 +57,7 @@ procedure TPyQT5.Prepare(const AModel: TPyPackageModel);
 begin
   inherited;
   with AModel do begin
-    PackageName := 'PyQT5';
+    PackageName := 'pyqt5';
     //NumPy from PIP
     PackageManagers.Add(
       TPyPackageManagerKind.pip,

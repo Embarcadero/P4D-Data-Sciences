@@ -57,7 +57,7 @@ procedure TONNXRuntime.Prepare(const AModel: TPyPackageModel);
 begin
   inherited;
   with AModel do begin
-    PackageName := 'ONNXRuntime';
+    PackageName := 'onnxruntime';
     //NumPy from PIP
     PackageManagers.Add(
       TPyPackageManagerKind.pip,
