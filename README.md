@@ -22,4 +22,4 @@ Please make sure the following are installed **_before_** installing this librar
 * [PythonEnviroments](https://github.com/Embarcadero/PythonEnviroments)
 * [Lightweight-Python-Wrappers](https://github.com/Embarcadero/Lightweight-Python-Wrappers)
 
-Each library depends on the one above it, once these are installed this library will also installed
+Each library depends on the one above it, once these are installed this library will also install
