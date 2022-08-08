@@ -9,7 +9,7 @@
  ********************************************************)
 
 
-unit CV2_ContribReg;
+unit CV2ContribReg;
 
 interface
 
@@ -18,11 +18,11 @@ procedure Register();
 implementation
 
 uses
-  Classes, CV2_Contrib;
+  Classes, CV2Contrib;
 
 procedure Register();
 begin
-  RegisterComponents('Python - Data Science Ecosystem', [TCV2_Contrib]);
+  RegisterComponents('Python - Data Science Ecosystem', [TCV2Contrib]);
 end;
 
 end.

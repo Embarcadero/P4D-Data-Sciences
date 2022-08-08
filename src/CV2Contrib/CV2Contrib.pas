@@ -9,7 +9,7 @@
  ********************************************************)
 
 
-unit CV2_Contrib;
+unit CV2Contrib;
 
 interface
 
@@ -18,7 +18,7 @@ uses
 
 type
   [ComponentPlatforms(pidAllPlatforms)]
-  TCV2_Contrib = class(TPyManagedPackage)
+  TCV2Contrib = class(TPyManagedPackage)
   private
     function AsVariant: variant;
   protected
@@ -36,14 +36,14 @@ uses
   PyPackage.Manager.Pip,
   PyPackage.Manager.Conda;
 
-{ TCV2_Contrib }
+{ TCV2Contrib }
 
-function TCV2_Contrib.AsVariant: variant;
+function TCV2Contrib.AsVariant: variant;
 begin
   Result := inherited;
 end;
 
-procedure TCV2_Contrib.ImportModule;
+procedure TCV2Contrib.ImportModule;
 begin
   MaskFPUExceptions(true);
   try
@@ -53,7 +53,7 @@ begin
   end;
 end;
 
-procedure TCV2_Contrib.Prepare(const AModel: TPyPackageModel);
+procedure TCV2Contrib.Prepare(const AModel: TPyPackageModel);
 begin
   inherited;
   with AModel do begin

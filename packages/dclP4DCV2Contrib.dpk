@@ -1,4 +1,4 @@
-package dclP4DCV2_Contrib;
+package dclP4DCV2Contrib;
 
 {$R *.res}
 {$R *.dres}
@@ -26,16 +26,16 @@ package dclP4DCV2_Contrib;
 {$IMAGEBASE $400000}
 {$DEFINE RELEASE}
 {$ENDIF IMPLICITBUILDING}
-{$DESCRIPTION 'P4D Data Sciences - CV2_Contrib'}
+{$DESCRIPTION 'P4D Data Sciences - CV2Contrib'}
 {$LIBSUFFIX AUTO}
 {$DESIGNONLY}
 {$IMPLICITBUILD ON}
 
 requires
   rtl,
-  p4dCV2_Contrib;
+  p4dCV2Contrib;
 
 contains
-  CV2_ContribReg in '..\src\CV2_Contrib\CV2_ContribReg.pas';
+  CV2ContribReg in '..\src\CV2Contrib\CV2ContribReg.pas';
 
 end.

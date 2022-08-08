@@ -4,7 +4,7 @@
         <AppType>Package</AppType>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <FrameworkType>None</FrameworkType>
-        <MainSource>P4DCV2_Contrib.dpk</MainSource>
+        <MainSource>P4DCV2Contrib.dpk</MainSource>
         <Platform Condition="'$(Platform)'==''">Win64</Platform>
         <ProjectGuid>{5E626555-628E-4DDC-BBF0-83A0A81593E1}</ProjectGuid>
         <ProjectVersion>19.2</ProjectVersion>
@@ -114,10 +114,10 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
-        <SanitizedProjectName>P4DCV2_Contrib</SanitizedProjectName>
+        <SanitizedProjectName>P4DCV2Contrib</SanitizedProjectName>
         <DCC_CBuilderOutput>All</DCC_CBuilderOutput>
         <DCC_DcuOutput>..\lib\$(Platform)\$(Config)</DCC_DcuOutput>
-        <DCC_Description>P4D Data Sciences - CV2_Contrib</DCC_Description>
+        <DCC_Description>P4D Data Sciences - CV2Contrib</DCC_Description>
         <DCC_ExeOutput>.\$(Platform)\$(Config)</DCC_ExeOutput>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
         <DllSuffix>$(Auto)</DllSuffix>
@@ -224,7 +224,7 @@
         </DelphiCompile>
         <DCCReference Include="rtl.dcp"/>
         <DCCReference Include="p4dpypackage.dcp"/>
-        <DCCReference Include="..\src\CV2_Contrib\CV2_Contrib.pas"/>
+        <DCCReference Include="..\src\CV2Contrib\CV2Contrib.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -243,7 +243,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">P4DCV2_Contrib.dpk</Source>
+                    <Source Name="MainSource">P4DCV2Contrib.dpk</Source>
                 </Source>
                 <Excluded_Packages/>
             </Delphi.Personality>

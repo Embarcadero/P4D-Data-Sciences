@@ -1,4 +1,4 @@
-package P4DCV2_Contrib;
+package P4DCV2Contrib;
 
 {$R *.res}
 {$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
@@ -25,7 +25,7 @@ package P4DCV2_Contrib;
 {$IMAGEBASE $400000}
 {$DEFINE RELEASE}
 {$ENDIF IMPLICITBUILDING}
-{$DESCRIPTION 'P4D Data Sciences - CV2_Contrib'}
+{$DESCRIPTION 'P4D Data Sciences - CV2Contrib'}
 {$LIBSUFFIX AUTO}
 {$RUNONLY}
 {$IMPLICITBUILD ON}
@@ -35,6 +35,6 @@ requires
   p4dpypackage;
 
 contains
-  CV2_Contrib in '..\src\CV2_Contrib\CV2_Contrib.pas';
+  CV2Contrib in '..\src\CV2Contrib\CV2Contrib.pas';
 
 end.
