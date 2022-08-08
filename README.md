@@ -16,9 +16,10 @@ Most packages have basic samples, but PyTorch has a very involed [Transfer Learn
 
 ## Dependencies:
 
-Please make sure the following are installed **_before_** installing this library
+Please make sure the following are installed **_before_** installing this library **_and in the following order_**  
 
 * [Python4Delphi](https://github.com/Embarcadero/python4delphi)
-* [Lightweight-Python-Wrappers](https://github.com/Embarcadero/Lightweight-Python-Wrappers)
 * [PythonEnviroments](https://github.com/Embarcadero/PythonEnviroments)
+* [Lightweight-Python-Wrappers](https://github.com/Embarcadero/Lightweight-Python-Wrappers)
 
+Each library depends on the one above it, once these are installed this library will also install
