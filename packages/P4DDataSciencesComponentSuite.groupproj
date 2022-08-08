@@ -42,6 +42,24 @@
         <Projects Include="P4DPSUtil.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="P4DRemBG.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="P4DPyQT5.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="P4DONNXRuntime.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="P4DMoviePy.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="P4DKeras.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="P4DBoto3.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="dclP4DCV2_Contrib.dproj">
             <Dependencies/>
         </Projects>
@@ -79,6 +97,24 @@
             <Dependencies/>
         </Projects>
         <Projects Include="dclP4DTensorFlow.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="dclP4DRemBG.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="dclP4DPyQT5.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="dclP4DONNXRuntime.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="dclP4DMoviePy.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="dclP4DKeras.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="dclP4DBoto3.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -206,6 +242,60 @@
     <Target Name="P4DPSUtil:Make">
         <MSBuild Projects="P4DPSUtil.dproj" Targets="Make"/>
     </Target>
+    <Target Name="P4DRemBG">
+        <MSBuild Projects="P4DRemBG.dproj"/>
+    </Target>
+    <Target Name="P4DRemBG:Clean">
+        <MSBuild Projects="P4DRemBG.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="P4DRemBG:Make">
+        <MSBuild Projects="P4DRemBG.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="P4DPyQT5">
+        <MSBuild Projects="P4DPyQT5.dproj"/>
+    </Target>
+    <Target Name="P4DPyQT5:Clean">
+        <MSBuild Projects="P4DPyQT5.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="P4DPyQT5:Make">
+        <MSBuild Projects="P4DPyQT5.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="P4DONNXRuntime">
+        <MSBuild Projects="P4DONNXRuntime.dproj"/>
+    </Target>
+    <Target Name="P4DONNXRuntime:Clean">
+        <MSBuild Projects="P4DONNXRuntime.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="P4DONNXRuntime:Make">
+        <MSBuild Projects="P4DONNXRuntime.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="P4DMoviePy">
+        <MSBuild Projects="P4DMoviePy.dproj"/>
+    </Target>
+    <Target Name="P4DMoviePy:Clean">
+        <MSBuild Projects="P4DMoviePy.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="P4DMoviePy:Make">
+        <MSBuild Projects="P4DMoviePy.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="P4DKeras">
+        <MSBuild Projects="P4DKeras.dproj"/>
+    </Target>
+    <Target Name="P4DKeras:Clean">
+        <MSBuild Projects="P4DKeras.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="P4DKeras:Make">
+        <MSBuild Projects="P4DKeras.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="P4DBoto3">
+        <MSBuild Projects="P4DBoto3.dproj"/>
+    </Target>
+    <Target Name="P4DBoto3:Clean">
+        <MSBuild Projects="P4DBoto3.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="P4DBoto3:Make">
+        <MSBuild Projects="P4DBoto3.dproj" Targets="Make"/>
+    </Target>
     <Target Name="dclP4DCV2_Contrib">
         <MSBuild Projects="dclP4DCV2_Contrib.dproj"/>
     </Target>
@@ -323,14 +413,68 @@
     <Target Name="dclP4DTensorFlow:Make">
         <MSBuild Projects="dclP4DTensorFlow.dproj" Targets="Make"/>
     </Target>
+    <Target Name="dclP4DRemBG">
+        <MSBuild Projects="dclP4DRemBG.dproj"/>
+    </Target>
+    <Target Name="dclP4DRemBG:Clean">
+        <MSBuild Projects="dclP4DRemBG.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclP4DRemBG:Make">
+        <MSBuild Projects="dclP4DRemBG.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclP4DPyQT5">
+        <MSBuild Projects="dclP4DPyQT5.dproj"/>
+    </Target>
+    <Target Name="dclP4DPyQT5:Clean">
+        <MSBuild Projects="dclP4DPyQT5.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclP4DPyQT5:Make">
+        <MSBuild Projects="dclP4DPyQT5.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclP4DONNXRuntime">
+        <MSBuild Projects="dclP4DONNXRuntime.dproj"/>
+    </Target>
+    <Target Name="dclP4DONNXRuntime:Clean">
+        <MSBuild Projects="dclP4DONNXRuntime.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclP4DONNXRuntime:Make">
+        <MSBuild Projects="dclP4DONNXRuntime.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclP4DMoviePy">
+        <MSBuild Projects="dclP4DMoviePy.dproj"/>
+    </Target>
+    <Target Name="dclP4DMoviePy:Clean">
+        <MSBuild Projects="dclP4DMoviePy.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclP4DMoviePy:Make">
+        <MSBuild Projects="dclP4DMoviePy.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclP4DKeras">
+        <MSBuild Projects="dclP4DKeras.dproj"/>
+    </Target>
+    <Target Name="dclP4DKeras:Clean">
+        <MSBuild Projects="dclP4DKeras.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclP4DKeras:Make">
+        <MSBuild Projects="dclP4DKeras.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclP4DBoto3">
+        <MSBuild Projects="dclP4DBoto3.dproj"/>
+    </Target>
+    <Target Name="dclP4DBoto3:Clean">
+        <MSBuild Projects="dclP4DBoto3.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclP4DBoto3:Make">
+        <MSBuild Projects="dclP4DBoto3.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="P4DMatplotLib;P4DNLTK;P4DNumPy;P4DOpenCV;P4DPyTorch;P4DScikitLearn;P4DTensorFlow;P4DH5Py;P4DCV2_Contrib;P4DSciPy;P4DPandas;P4DPillow;P4DPSUtil;dclP4DCV2_Contrib;dclP4DH5Py;dclP4DNLTK;dclP4DNumPy;dclP4DMatplotLib;dclP4DOpenCV;dclP4DPandas;dclP4DPillow;dclP4DPSUtil;dclP4DPyTorch;dclP4DScikitLearn;dclP4DSciPy;dclP4DTensorFlow"/>
+        <CallTarget Targets="P4DMatplotLib;P4DNLTK;P4DNumPy;P4DOpenCV;P4DPyTorch;P4DScikitLearn;P4DTensorFlow;P4DH5Py;P4DCV2_Contrib;P4DSciPy;P4DPandas;P4DPillow;P4DPSUtil;dclP4DCV2_Contrib;dclP4DH5Py;dclP4DNLTK;dclP4DNumPy;dclP4DMatplotLib;dclP4DOpenCV;dclP4DPandas;dclP4DPillow;dclP4DPSUtil;dclP4DPyTorch;dclP4DScikitLearn;dclP4DSciPy;dclP4DTensorFlow;P4DRemBG;P4DPyQT5;P4DONNXRuntime;P4DMoviePy;P4DKeras;P4DBoto3;dclP4DRemBG;dclP4DPyQT5;dclP4DONNXRuntime;dclP4DMoviePy;dclP4DKeras;dclP4DBoto3"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="P4DMatplotLib:Clean;P4DNLTK:Clean;P4DNumPy:Clean;P4DOpenCV:Clean;P4DPyTorch:Clean;P4DScikitLearn:Clean;P4DTensorFlow:Clean;P4DH5Py:Clean;P4DCV2_Contrib:Clean;P4DSciPy:Clean;P4DPandas:Clean;P4DPillow:Clean;P4DPSUtil:Clean;dclP4DCV2_Contrib:Clean;dclP4DH5Py:Clean;dclP4DNLTK:Clean;dclP4DNumPy:Clean;dclP4DMatplotLib:Clean;dclP4DOpenCV:Clean;dclP4DPandas:Clean;dclP4DPillow:Clean;dclP4DPSUtil:Clean;dclP4DPyTorch:Clean;dclP4DScikitLearn:Clean;dclP4DSciPy:Clean;dclP4DTensorFlow:Clean"/>
+        <CallTarget Targets="P4DMatplotLib:Clean;P4DNLTK:Clean;P4DNumPy:Clean;P4DOpenCV:Clean;P4DPyTorch:Clean;P4DScikitLearn:Clean;P4DTensorFlow:Clean;P4DH5Py:Clean;P4DCV2_Contrib:Clean;P4DSciPy:Clean;P4DPandas:Clean;P4DPillow:Clean;P4DPSUtil:Clean;dclP4DCV2_Contrib:Clean;dclP4DH5Py:Clean;dclP4DNLTK:Clean;dclP4DNumPy:Clean;dclP4DMatplotLib:Clean;dclP4DOpenCV:Clean;dclP4DPandas:Clean;dclP4DPillow:Clean;dclP4DPSUtil:Clean;dclP4DPyTorch:Clean;dclP4DScikitLearn:Clean;dclP4DSciPy:Clean;dclP4DTensorFlow:Clean;P4DRemBG:Clean;P4DPyQT5:Clean;P4DONNXRuntime:Clean;P4DMoviePy:Clean;P4DKeras:Clean;P4DBoto3:Clean;dclP4DRemBG:Clean;dclP4DPyQT5:Clean;dclP4DONNXRuntime:Clean;dclP4DMoviePy:Clean;dclP4DKeras:Clean;dclP4DBoto3:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="P4DMatplotLib:Make;P4DNLTK:Make;P4DNumPy:Make;P4DOpenCV:Make;P4DPyTorch:Make;P4DScikitLearn:Make;P4DTensorFlow:Make;P4DH5Py:Make;P4DCV2_Contrib:Make;P4DSciPy:Make;P4DPandas:Make;P4DPillow:Make;P4DPSUtil:Make;dclP4DCV2_Contrib:Make;dclP4DH5Py:Make;dclP4DNLTK:Make;dclP4DNumPy:Make;dclP4DMatplotLib:Make;dclP4DOpenCV:Make;dclP4DPandas:Make;dclP4DPillow:Make;dclP4DPSUtil:Make;dclP4DPyTorch:Make;dclP4DScikitLearn:Make;dclP4DSciPy:Make;dclP4DTensorFlow:Make"/>
+        <CallTarget Targets="P4DMatplotLib:Make;P4DNLTK:Make;P4DNumPy:Make;P4DOpenCV:Make;P4DPyTorch:Make;P4DScikitLearn:Make;P4DTensorFlow:Make;P4DH5Py:Make;P4DCV2_Contrib:Make;P4DSciPy:Make;P4DPandas:Make;P4DPillow:Make;P4DPSUtil:Make;dclP4DCV2_Contrib:Make;dclP4DH5Py:Make;dclP4DNLTK:Make;dclP4DNumPy:Make;dclP4DMatplotLib:Make;dclP4DOpenCV:Make;dclP4DPandas:Make;dclP4DPillow:Make;dclP4DPSUtil:Make;dclP4DPyTorch:Make;dclP4DScikitLearn:Make;dclP4DSciPy:Make;dclP4DTensorFlow:Make;P4DRemBG:Make;P4DPyQT5:Make;P4DONNXRuntime:Make;P4DMoviePy:Make;P4DKeras:Make;P4DBoto3:Make;dclP4DRemBG:Make;dclP4DPyQT5:Make;dclP4DONNXRuntime:Make;dclP4DMoviePy:Make;dclP4DKeras:Make;dclP4DBoto3:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

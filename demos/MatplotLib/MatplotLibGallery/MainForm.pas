@@ -20,7 +20,7 @@ uses
   FMX.Controls.Presentation, FMX.ScrollBox, FMX.Memo, NumPy, FMX.StdCtrls,
   FMX.Layouts, PyPackage, System.Generics.Collections, PyEnvironment,
   PyEnvironment.Embeddable, PyEnvironment.Embeddable.Res,
-  PyEnvironment.Embeddable.Res.Python310;
+  PyEnvironment.Embeddable.Res.Python310, PyQT5;
 
 type
   TForm1 = class(TForm)
@@ -34,6 +34,7 @@ type
     btnScatterSymbol: TButton;
     btnInterpolations: TButton;
     PyEmbeddedResEnvironment3101: TPyEmbeddedResEnvironment310;
+    PyQT51: TPyQT5;
     procedure btnScatterMaskedClick(Sender: TObject);
     procedure btnScatterSymbolClick(Sender: TObject);
     procedure btnInterpolationsClick(Sender: TObject);

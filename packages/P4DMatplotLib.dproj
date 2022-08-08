@@ -2,7 +2,7 @@
     <PropertyGroup>
         <Base>True</Base>
         <AppType>Package</AppType>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <FrameworkType>None</FrameworkType>
         <MainSource>P4DMatplotLib.dpk</MainSource>
         <Platform Condition="'$(Platform)'==''">Win64</Platform>
