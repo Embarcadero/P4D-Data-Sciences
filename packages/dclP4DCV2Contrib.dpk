@@ -1,4 +1,4 @@
-package dclP4DCV2_Contrib;
+package dclP4DCV2Contrib;
 
 {$R *.res}
 {$R *.dres}
@@ -33,7 +33,7 @@ package dclP4DCV2_Contrib;
 
 requires
   rtl,
-  p4dCV2_Contrib;
+  p4dCV2Contrib;
 
 contains
   CV2_ContribReg in '..\src\CV2_Contrib\CV2_ContribReg.pas';
