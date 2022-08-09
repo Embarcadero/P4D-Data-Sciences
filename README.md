@@ -16,7 +16,7 @@ Most packages have basic samples, but PyTorch has a very involed [Transfer Learn
 
 ## Dependencies:
 
-Please make sure the following are installed **_before_** installing this library **_and in the following order_**  
+Please make sure the following are installed **_before_** installing this library **_and in the following order:_**  
 
 * [Python4Delphi](https://github.com/Embarcadero/python4delphi)
 * [PythonEnviroments](https://github.com/Embarcadero/PythonEnviroments)
