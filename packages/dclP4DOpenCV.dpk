@@ -36,6 +36,7 @@ requires
   p4dopencv;
 
 contains
-  OpenCVReg in '..\src\OpenCV\OpenCVReg.pas';
+  OpenCVReg in '..\src\OpenCV\OpenCVReg.pas',
+  OpenCVContribReg in '..\src\OpenCV\contrib\OpenCVContribReg.pas';
 
 end.

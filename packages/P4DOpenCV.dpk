@@ -35,6 +35,7 @@ requires
   p4dpypackage;
 
 contains
-  OpenCV in '..\src\OpenCV\OpenCV.pas';
+  OpenCV in '..\src\OpenCV\OpenCV.pas',
+  OpenCVContrib in '..\src\OpenCV\contrib\OpenCVContrib.pas';
 
 end.
