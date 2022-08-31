@@ -25,7 +25,7 @@ type
     procedure Prepare(const AModel: TPyPackageModel); override;
     procedure ImportModule; override;
   public
-    property pillow: variant read AsVariant;
+    property PIL: variant read AsVariant;
   end;
 
 implementation
@@ -57,7 +57,7 @@ procedure TPillow.Prepare(const AModel: TPyPackageModel);
 begin
   inherited;
   with AModel do begin
-    PackageName := 'pillow';
+    PackageName := 'PIL';
     //NumPy from PIP
     PackageManagers.Add(
       TPyPackageManagerKind.pip,
