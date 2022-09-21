@@ -72,3 +72,4 @@ modules/
 
 
 demos/PyTorch/PyTorchTransferLearning/bin/*
+demos/PyTorch/PyTorchTransferLearning/training_data/*
