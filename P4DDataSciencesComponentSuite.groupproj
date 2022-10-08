@@ -1,0 +1,288 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{1F3D0B72-75EA-4ACB-8DEC-AB9522D130F3}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="src\MatplotLib\P4DMatplotLib.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\NLTK\P4DNLTK.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\NumPy\P4DNumPy.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\OpenCV\P4DOpenCV.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\PyTorch\P4DPyTorch.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\ScikitLearn\P4DScikitLearn.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\TensorFlow\P4DTensorFlow.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\SciPy\P4DSciPy.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\Pandas\P4DPandas.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\ONNXRuntime\P4DONNXRuntime.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\Keras\P4DKeras.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\MatplotLib\dclP4DMatplotLib.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\NLTK\dclP4DNLTK.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\ONNXRuntime\dclP4DONNXRuntime.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\SciPy\dclP4DSciPy.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\NumPy\dclP4DNumPy.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\ScikitLearn\dclP4DScikitLearn.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\PyTorch\dclP4DPyTorch.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\OpenCV\dclP4DOpenCV.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\TensorFlow\dclP4DTensorFlow.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\Pandas\dclP4DPandas.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\Keras\dclP4DKeras.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="P4DMatplotLib">
+        <MSBuild Projects="src\MatplotLib\P4DMatplotLib.dproj"/>
+    </Target>
+    <Target Name="P4DMatplotLib:Clean">
+        <MSBuild Projects="src\MatplotLib\P4DMatplotLib.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="P4DMatplotLib:Make">
+        <MSBuild Projects="src\MatplotLib\P4DMatplotLib.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="P4DNLTK">
+        <MSBuild Projects="src\NLTK\P4DNLTK.dproj"/>
+    </Target>
+    <Target Name="P4DNLTK:Clean">
+        <MSBuild Projects="src\NLTK\P4DNLTK.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="P4DNLTK:Make">
+        <MSBuild Projects="src\NLTK\P4DNLTK.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="P4DNumPy">
+        <MSBuild Projects="src\NumPy\P4DNumPy.dproj"/>
+    </Target>
+    <Target Name="P4DNumPy:Clean">
+        <MSBuild Projects="src\NumPy\P4DNumPy.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="P4DNumPy:Make">
+        <MSBuild Projects="src\NumPy\P4DNumPy.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="P4DOpenCV">
+        <MSBuild Projects="src\OpenCV\P4DOpenCV.dproj"/>
+    </Target>
+    <Target Name="P4DOpenCV:Clean">
+        <MSBuild Projects="src\OpenCV\P4DOpenCV.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="P4DOpenCV:Make">
+        <MSBuild Projects="src\OpenCV\P4DOpenCV.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="P4DPyTorch">
+        <MSBuild Projects="src\PyTorch\P4DPyTorch.dproj"/>
+    </Target>
+    <Target Name="P4DPyTorch:Clean">
+        <MSBuild Projects="src\PyTorch\P4DPyTorch.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="P4DPyTorch:Make">
+        <MSBuild Projects="src\PyTorch\P4DPyTorch.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="P4DScikitLearn">
+        <MSBuild Projects="src\ScikitLearn\P4DScikitLearn.dproj"/>
+    </Target>
+    <Target Name="P4DScikitLearn:Clean">
+        <MSBuild Projects="src\ScikitLearn\P4DScikitLearn.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="P4DScikitLearn:Make">
+        <MSBuild Projects="src\ScikitLearn\P4DScikitLearn.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="P4DTensorFlow">
+        <MSBuild Projects="src\TensorFlow\P4DTensorFlow.dproj"/>
+    </Target>
+    <Target Name="P4DTensorFlow:Clean">
+        <MSBuild Projects="src\TensorFlow\P4DTensorFlow.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="P4DTensorFlow:Make">
+        <MSBuild Projects="src\TensorFlow\P4DTensorFlow.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="P4DSciPy">
+        <MSBuild Projects="src\SciPy\P4DSciPy.dproj"/>
+    </Target>
+    <Target Name="P4DSciPy:Clean">
+        <MSBuild Projects="src\SciPy\P4DSciPy.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="P4DSciPy:Make">
+        <MSBuild Projects="src\SciPy\P4DSciPy.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="P4DPandas">
+        <MSBuild Projects="src\Pandas\P4DPandas.dproj"/>
+    </Target>
+    <Target Name="P4DPandas:Clean">
+        <MSBuild Projects="src\Pandas\P4DPandas.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="P4DPandas:Make">
+        <MSBuild Projects="src\Pandas\P4DPandas.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="P4DONNXRuntime">
+        <MSBuild Projects="src\ONNXRuntime\P4DONNXRuntime.dproj"/>
+    </Target>
+    <Target Name="P4DONNXRuntime:Clean">
+        <MSBuild Projects="src\ONNXRuntime\P4DONNXRuntime.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="P4DONNXRuntime:Make">
+        <MSBuild Projects="src\ONNXRuntime\P4DONNXRuntime.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="P4DKeras">
+        <MSBuild Projects="src\Keras\P4DKeras.dproj"/>
+    </Target>
+    <Target Name="P4DKeras:Clean">
+        <MSBuild Projects="src\Keras\P4DKeras.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="P4DKeras:Make">
+        <MSBuild Projects="src\Keras\P4DKeras.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclP4DMatplotLib">
+        <MSBuild Projects="src\MatplotLib\dclP4DMatplotLib.dproj"/>
+    </Target>
+    <Target Name="dclP4DMatplotLib:Clean">
+        <MSBuild Projects="src\MatplotLib\dclP4DMatplotLib.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclP4DMatplotLib:Make">
+        <MSBuild Projects="src\MatplotLib\dclP4DMatplotLib.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclP4DNLTK">
+        <MSBuild Projects="src\NLTK\dclP4DNLTK.dproj"/>
+    </Target>
+    <Target Name="dclP4DNLTK:Clean">
+        <MSBuild Projects="src\NLTK\dclP4DNLTK.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclP4DNLTK:Make">
+        <MSBuild Projects="src\NLTK\dclP4DNLTK.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclP4DONNXRuntime">
+        <MSBuild Projects="src\ONNXRuntime\dclP4DONNXRuntime.dproj"/>
+    </Target>
+    <Target Name="dclP4DONNXRuntime:Clean">
+        <MSBuild Projects="src\ONNXRuntime\dclP4DONNXRuntime.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclP4DONNXRuntime:Make">
+        <MSBuild Projects="src\ONNXRuntime\dclP4DONNXRuntime.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclP4DSciPy">
+        <MSBuild Projects="src\SciPy\dclP4DSciPy.dproj"/>
+    </Target>
+    <Target Name="dclP4DSciPy:Clean">
+        <MSBuild Projects="src\SciPy\dclP4DSciPy.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclP4DSciPy:Make">
+        <MSBuild Projects="src\SciPy\dclP4DSciPy.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclP4DNumPy">
+        <MSBuild Projects="src\NumPy\dclP4DNumPy.dproj"/>
+    </Target>
+    <Target Name="dclP4DNumPy:Clean">
+        <MSBuild Projects="src\NumPy\dclP4DNumPy.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclP4DNumPy:Make">
+        <MSBuild Projects="src\NumPy\dclP4DNumPy.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclP4DScikitLearn">
+        <MSBuild Projects="src\ScikitLearn\dclP4DScikitLearn.dproj"/>
+    </Target>
+    <Target Name="dclP4DScikitLearn:Clean">
+        <MSBuild Projects="src\ScikitLearn\dclP4DScikitLearn.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclP4DScikitLearn:Make">
+        <MSBuild Projects="src\ScikitLearn\dclP4DScikitLearn.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclP4DPyTorch">
+        <MSBuild Projects="src\PyTorch\dclP4DPyTorch.dproj"/>
+    </Target>
+    <Target Name="dclP4DPyTorch:Clean">
+        <MSBuild Projects="src\PyTorch\dclP4DPyTorch.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclP4DPyTorch:Make">
+        <MSBuild Projects="src\PyTorch\dclP4DPyTorch.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclP4DOpenCV">
+        <MSBuild Projects="src\OpenCV\dclP4DOpenCV.dproj"/>
+    </Target>
+    <Target Name="dclP4DOpenCV:Clean">
+        <MSBuild Projects="src\OpenCV\dclP4DOpenCV.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclP4DOpenCV:Make">
+        <MSBuild Projects="src\OpenCV\dclP4DOpenCV.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclP4DTensorFlow">
+        <MSBuild Projects="src\TensorFlow\dclP4DTensorFlow.dproj"/>
+    </Target>
+    <Target Name="dclP4DTensorFlow:Clean">
+        <MSBuild Projects="src\TensorFlow\dclP4DTensorFlow.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclP4DTensorFlow:Make">
+        <MSBuild Projects="src\TensorFlow\dclP4DTensorFlow.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclP4DPandas">
+        <MSBuild Projects="src\Pandas\dclP4DPandas.dproj"/>
+    </Target>
+    <Target Name="dclP4DPandas:Clean">
+        <MSBuild Projects="src\Pandas\dclP4DPandas.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclP4DPandas:Make">
+        <MSBuild Projects="src\Pandas\dclP4DPandas.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclP4DKeras">
+        <MSBuild Projects="src\Keras\dclP4DKeras.dproj"/>
+    </Target>
+    <Target Name="dclP4DKeras:Clean">
+        <MSBuild Projects="src\Keras\dclP4DKeras.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclP4DKeras:Make">
+        <MSBuild Projects="src\Keras\dclP4DKeras.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="P4DMatplotLib;P4DNLTK;P4DNumPy;P4DOpenCV;P4DPyTorch;P4DScikitLearn;P4DTensorFlow;P4DSciPy;P4DPandas;P4DONNXRuntime;P4DKeras;dclP4DMatplotLib;dclP4DNLTK;dclP4DONNXRuntime;dclP4DSciPy;dclP4DNumPy;dclP4DScikitLearn;dclP4DPyTorch;dclP4DOpenCV;dclP4DTensorFlow;dclP4DPandas;dclP4DKeras"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="P4DMatplotLib:Clean;P4DNLTK:Clean;P4DNumPy:Clean;P4DOpenCV:Clean;P4DPyTorch:Clean;P4DScikitLearn:Clean;P4DTensorFlow:Clean;P4DSciPy:Clean;P4DPandas:Clean;P4DONNXRuntime:Clean;P4DKeras:Clean;dclP4DMatplotLib:Clean;dclP4DNLTK:Clean;dclP4DONNXRuntime:Clean;dclP4DSciPy:Clean;dclP4DNumPy:Clean;dclP4DScikitLearn:Clean;dclP4DPyTorch:Clean;dclP4DOpenCV:Clean;dclP4DTensorFlow:Clean;dclP4DPandas:Clean;dclP4DKeras:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="P4DMatplotLib:Make;P4DNLTK:Make;P4DNumPy:Make;P4DOpenCV:Make;P4DPyTorch:Make;P4DScikitLearn:Make;P4DTensorFlow:Make;P4DSciPy:Make;P4DPandas:Make;P4DONNXRuntime:Make;P4DKeras:Make;dclP4DMatplotLib:Make;dclP4DNLTK:Make;dclP4DONNXRuntime:Make;dclP4DSciPy:Make;dclP4DNumPy:Make;dclP4DScikitLearn:Make;dclP4DPyTorch:Make;dclP4DOpenCV:Make;dclP4DTensorFlow:Make;dclP4DPandas:Make;dclP4DKeras:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
