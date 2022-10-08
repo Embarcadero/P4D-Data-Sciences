@@ -8,7 +8,6 @@
  * https://github.com/Embarcadero/P4D-Data-Sciences     *
  ********************************************************)
 
-
 unit MatplotLib;
 
 interface
