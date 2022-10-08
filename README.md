@@ -12,6 +12,8 @@ This is an _early access preview_, but you are encouraged to try it out, file bu
 * **OpenCV** - Library of programming functions mainly aimed at real-time computer vision
 * **Scikit-learn** - [[Demos](https://github.com/Embarcadero/P4D-Data-Sciences/tree/main/demos/ScikitLearn)] Machine learning library that features various classification, regression and clustering algorithms including support-vector machines, random forests, gradient boosting, k-means and DBSCAN.
 
+Most packages have basic samples, but PyTorch has a very involed [Transfer Learning demonstration](https://github.com/Embarcadero/P4D-Data-Sciences/tree/main/demos/PyTorch/PyTorchTransferLearning).
+
 ## New Packages:
 
 * [Keras](https://keras.io/) - Deep learning for humans: Keras is an API designed for human beings, not machines. Keras follows best practices for reducing cognitive load: it offers consistent & simple APIs, it minimizes the number of user actions required for common use cases, and it provides clear & actionable error messages. It also has extensive documentation and developer guides.
@@ -20,8 +22,6 @@ This is an _early access preview_, but you are encouraged to try it out, file bu
 
 ## Other Python Packages for Delphi
 Check out the [PythonPackages4Delphi](https://github.com/Embarcadero/PythonPackages4Delphi) for other non-Data Science related packages.
-
-Most packages have basic samples, but PyTorch has a very involed [Transfer Learning demonstration](https://github.com/Embarcadero/P4D-Data-Sciences/tree/main/demos/PyTorch/PyTorchTransferLearning).
 
 ## Dependencies:
 
