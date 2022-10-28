@@ -1,0 +1,93 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Continue Plugins Installation After Error'
+  ClientHeight = 334
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnCloseQuery = FormCloseQuery
+  DesignerMasterStyle = 0
+  object Memo1: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Lines.Strings = (
+      
+        '>>> Delete the environment folder before running this sample (if' +
+        ' it exists). <<<'
+      'Torch will fail to install, but Numpy will install.')
+    Align = Client
+    Size.Width = 640.000000000000000000
+    Size.Height = 334.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Viewport.Width = 636.000000000000000000
+    Viewport.Height = 330.000000000000000000
+    object Button1: TButton
+      Align = Bottom
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 298.000000000000000000
+      Size.Width = 616.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Cancel'
+      OnClick = Button1Click
+    end
+  end
+  object PyTorch1: TPyTorch
+    AutoImport = False
+    BeforeImport = PyTorch1BeforeImport
+    AfterImport = PyTorch1AfterImport
+    PythonEngine = PythonEngine1
+    PyEnvironment = PyEmbeddedEnvironment1
+    ManagerKind = pip
+    Managers.Pip.PackageVersion = 'ERR_VER'
+    BeforeInstall = PyTorch1BeforeInstall
+    OnInstallError = PyTorch1InstallError
+    AfterInstall = PyTorch1AfterInstall
+    Left = 304
+    Top = 184
+  end
+  object PyEmbeddedEnvironment1: TPyEmbeddedEnvironment
+    BeforeSetup = PyEmbeddedEnvironment1BeforeSetup
+    AfterSetup = PyEmbeddedEnvironment1AfterSetup
+    BeforeActivate = PyEmbeddedEnvironment1BeforeActivate
+    AfterActivate = PyEmbeddedEnvironment1AfterActivate
+    OnError = PyEmbeddedEnvironment1Error
+    OnReady = PyEmbeddedEnvironment1Ready
+    OnPluginInstall = PyEmbeddedEnvironment1PluginInstall
+    AutoLoad = False
+    PythonEngine = PythonEngine1
+    Distributions = <>
+    Scanner.AutoScan = True
+    Scanner.ScanRule = srFileName
+    Scanner.DeleteEmbeddable = True
+    Left = 304
+    Top = 128
+  end
+  object PythonEngine1: TPythonEngine
+    AutoLoad = False
+    Left = 304
+    Top = 72
+  end
+  object NumPy1: TNumPy
+    AutoImport = False
+    BeforeImport = NumPy1BeforeImport
+    AfterImport = NumPy1AfterImport
+    PythonEngine = PythonEngine1
+    PyEnvironment = PyEmbeddedEnvironment1
+    ManagerKind = pip
+    BeforeInstall = NumPy1BeforeInstall
+    OnInstallError = NumPy1InstallError
+    AfterInstall = NumPy1AfterInstall
+    Left = 304
+    Top = 240
+  end
+end
