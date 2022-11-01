@@ -146,7 +146,6 @@
         <RuntimeOnlyPackage>true</RuntimeOnlyPackage>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_Locale>1046</VerInfo_Locale>
-        <DCC_Define>..\..\lib\$(Platform)\$(Config);$(DCC_Define)</DCC_Define>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Android)'!=''">
         <BT_BuildType>Debug</BT_BuildType>
