@@ -75,7 +75,7 @@
     <PropertyGroup Condition="'$(Base)'!=''">
         <SanitizedProjectName>P4DScikitLearn</SanitizedProjectName>
         <DCC_CBuilderOutput>All</DCC_CBuilderOutput>
-        <DCC_DcuOutput>..\lib\$(Platform)\$(Config)</DCC_DcuOutput>
+        <DCC_DcuOutput>..\..\lib\$(Platform)\$(Config)</DCC_DcuOutput>
         <DCC_Description>P4D Data Sciences - ScikitLearn</DCC_Description>
         <DCC_ExeOutput>.\$(Platform)\$(Config)</DCC_ExeOutput>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>

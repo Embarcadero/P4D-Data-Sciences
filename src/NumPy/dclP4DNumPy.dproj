@@ -43,7 +43,7 @@
     <PropertyGroup Condition="'$(Base)'!=''">
         <SanitizedProjectName>dclP4DNumPy</SanitizedProjectName>
         <BRCC_OutputDir>..\resources\</BRCC_OutputDir>
-        <DCC_DcuOutput>..\lib\$(Platform)\$(Config)</DCC_DcuOutput>
+        <DCC_DcuOutput>..\..\lib\$(Platform)\$(Config)</DCC_DcuOutput>
         <DCC_Description>P4D AI&amp;ML extension for Python packages - NumPy</DCC_Description>
         <DCC_ImageBase>00400000</DCC_ImageBase>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>

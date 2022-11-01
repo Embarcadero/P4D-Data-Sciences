@@ -44,7 +44,7 @@
         <SanitizedProjectName>dclP4DPyTorch</SanitizedProjectName>
         <BRCC_OutputDir>..\resources\</BRCC_OutputDir>
         <DCC_CBuilderOutput>All</DCC_CBuilderOutput>
-        <DCC_DcuOutput>..\lib\$(Platform)\$(Config)</DCC_DcuOutput>
+        <DCC_DcuOutput>..\..\lib\$(Platform)\$(Config)</DCC_DcuOutput>
         <DCC_Description>P4D Data Sciences - PyTorch</DCC_Description>
         <DCC_ExeOutput>.\$(Platform)\$(Config)</DCC_ExeOutput>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
