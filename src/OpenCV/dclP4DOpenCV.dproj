@@ -42,7 +42,6 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
         <SanitizedProjectName>dclP4DOpenCV</SanitizedProjectName>
-        <BRCC_OutputDir>..\resources\</BRCC_OutputDir>
         <DCC_CBuilderOutput>All</DCC_CBuilderOutput>
         <DCC_DcuOutput>..\..\lib\$(Platform)\$(Config)</DCC_DcuOutput>
         <DCC_Description>P4D Data Sciences - OpenCV</DCC_Description>
