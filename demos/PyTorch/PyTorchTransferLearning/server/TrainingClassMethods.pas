@@ -56,14 +56,10 @@ type
   TExecCmdAdapter = class
   strict private
     FExecCmd: IExecCmd;
-    FReader: TReader;
-    FWriter: TWriter;
   public
-    constructor Create(const AExecCmd: IExecCmd; const AReader: TReader; const AWriter: TWriter);
-    
+    constructor Create(const AExecCmd: IExecCmd);
+
     property ExecCmd: IExecCmd read FExecCmd;
-    property Reader: TReader read FReader;
-    property Writer: TWriter read FWriter;
   end;
   
 implementation
@@ -76,12 +72,10 @@ const
 
 { TExecCmdAdapter }
 
-constructor TExecCmdAdapter.Create(const AExecCmd: IExecCmd; const AReader: TReader;
-  const AWriter: TWriter);
+constructor TExecCmdAdapter.Create(const AExecCmd: IExecCmd);
 begin
+  inherited Create();
   FExecCmd := AExecCmd;
-  FReader := AReader;
-  FWriter := AWriter;
 end;
 
 {%CLASSGROUP 'FMX.Controls.TControl'}
@@ -161,9 +155,6 @@ procedure TTrainingClass.LoadTrainedModelProc(const AProfile: string);
 const
   PROC = 'ThumbsUpDownTrainedModelProc.exe';
   DEBUG_FLAG = 'DEBUG';
-var
-  LReader: TReader;
-  LWriter: TWriter;
 begin
   var LProcName := GetTrainedProcName(AProfile);
 
@@ -176,10 +167,10 @@ begin
 
   var LExec := TExecCmdService
     .Cmd(PROC, ['-o' + LModel, '-mCHILD_PROC' {, DEBUG_FLAG}])
-      .Run(LReader, LWriter, [TRedirect.stdin, TRedirect.stdout]);
+      .Run([TRedirect.stdin, TRedirect.stdout]);
 
   TDSSessionManager.GetThreadSession().PutObject(LProcName,
-    TExecCmdAdapter.Create(LExec, LReader, LWriter));
+    TExecCmdAdapter.Create(LExec));
 end;
 
 function TTrainingClass.GetTrainedModelProc(const AProfile: string): TExecCmdAdapter;
@@ -341,16 +332,14 @@ begin
   TThread.CreateAnonymousThread(
     procedure()
     var
-      LReader: TReader;
-      LWriter: TWriter;
       LOutput: string;
     begin
       var LExec := TExecCmdService
         .Cmd(PROC, LArgs)
-          .Run(LReader, LWriter, [TRedirect.stdout]);
+          .Run([TRedirect.stdout]);
 
       repeat
-        LOutput := LReader();
+        LOutput := LExec.StdOut.ReadNext() + LExec.StdErr.ReadNext();
         if not LOutput.IsEmpty() then begin
           DSServer.BroadcastMessage(LChannel, LCallBackId,
             TJSONObject.Create(TJSONPair.Create('pipe', LOutput)));
@@ -406,16 +395,14 @@ begin
   //We keep the trained model up and send requests as needed.
   //Note: starting up this process may take to much time. We can keep it alive, though.
   var LProc := GetTrainedModelProc(AProfile);
-  var LReader := LProc.Reader;
-  var LWriter := LProc.Writer;  
 
   var LInput := TJSONObject.Create(TJSONPair.Create('classify', LImagePath));
   try
-    LWriter(LInput.ToJSON());
+    LProc.ExecCmd.StdIn.Write(LInput.ToJSON());
   finally
     LInput.Free();
   end;
-  Result := LBuildResponse(LReader());
+  Result := LBuildResponse(LProc.ExecCmd.Output);
 end;
 
 end.
