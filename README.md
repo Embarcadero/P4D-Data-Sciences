@@ -28,7 +28,7 @@ Check out the [PythonPackages4Delphi](https://github.com/Embarcadero/PythonPacka
 Please make sure the following are installed **_before_** installing this library **_and in the following order:_**  
 
 * [Python4Delphi](https://github.com/Embarcadero/python4delphi)
-* [PythonEnviroments](https://github.com/Embarcadero/PythonEnviroments)
+* [PythonEnvironments](https://github.com/Embarcadero/PythonEnvironments)
 * [Lightweight-Python-Wrappers](https://github.com/Embarcadero/Lightweight-Python-Wrappers)
 
 Each library depends on the one above it, once these are installed this library will also install
