@@ -1,0 +1,143 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'GPT2 Simple Inference'
+  ClientHeight = 480
+  ClientWidth = 640
+  Position = DesktopCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object memLog: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Align = Bottom
+    Position.Y = 376.000000000000000000
+    Size.Width = 640.000000000000000000
+    Size.Height = 104.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    Viewport.Width = 636.000000000000000000
+    Viewport.Height = 100.000000000000000000
+  end
+  object loPrompt: TLayout
+    Align = Top
+    Size.Width = 640.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 13
+    object edtPrompt: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      StyleLookup = 'editstyle'
+      TabOrder = 0
+      Text = 'What is Artificial Inteligence?'
+      Margins.Left = 1.000000000000000000
+      Margins.Top = 1.000000000000000000
+      Margins.Right = 1.000000000000000000
+      Margins.Bottom = 1.000000000000000000
+      Size.Width = 638.000000000000000000
+      Size.Height = 28.000000000000000000
+      Size.PlatformDefault = False
+      TextPrompt = 'Prompt'
+      object btnAuto: TButton
+        Align = MostRight
+        Margins.Top = 2.000000000000000000
+        Margins.Right = 2.000000000000000000
+        Margins.Bottom = 2.000000000000000000
+        Position.X = 514.000000000000000000
+        Position.Y = 2.000000000000000000
+        Size.Width = 60.000000000000000000
+        Size.Height = 24.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 9
+        Text = 'Auto'
+        TextSettings.Trimming = None
+        OnClick = btnAutoClick
+      end
+      object btnPipeline: TButton
+        Align = MostRight
+        Margins.Top = 2.000000000000000000
+        Margins.Right = 2.000000000000000000
+        Margins.Bottom = 2.000000000000000000
+        Position.X = 576.000000000000000000
+        Position.Y = 2.000000000000000000
+        Size.Width = 60.000000000000000000
+        Size.Height = 24.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 8
+        Text = 'Pipeline'
+        TextSettings.Trimming = None
+        OnClick = btnPipelineClick
+      end
+      object AniIndicator1: TAniIndicator
+        Align = Right
+        Margins.Top = 2.000000000000000000
+        Margins.Right = 2.000000000000000000
+        Margins.Bottom = 2.000000000000000000
+        Position.X = 476.000000000000000000
+        Position.Y = 2.000000000000000000
+        Size.Width = 36.000000000000000000
+        Size.Height = 24.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+  end
+  object memOutput: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Align = Client
+    Size.Width = 640.000000000000000000
+    Size.Height = 346.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 14
+    Viewport.Width = 636.000000000000000000
+    Viewport.Height = 342.000000000000000000
+  end
+  object PythonEngine1: TPythonEngine
+    AutoLoad = False
+    IO = PythonGUIInputOutput1
+    Left = 176
+    Top = 312
+  end
+  object PythonGUIInputOutput1: TPythonGUIInputOutput
+    UnicodeIO = True
+    RawOutput = False
+    Output = memLog
+    Left = 176
+    Top = 368
+  end
+  object PyEmbeddedEnvironment1: TPyEmbeddedEnvironment
+    BeforeSetup = PyEmbeddedEnvironment1BeforeSetup
+    OnError = PyEmbeddedEnvironment1Error
+    OnReady = PyEmbeddedEnvironment1Ready
+    AutoLoad = False
+    PythonVersion = '3.11'
+    PythonEngine = PythonEngine1
+    Distributions = <>
+    Scanner.AutoScan = True
+    Scanner.ScanRule = srFileName
+    Scanner.DeleteEmbeddable = False
+    Left = 320
+    Top = 312
+  end
+  object PyTorch1: TPyTorch
+    AutoImport = False
+    PythonEngine = PythonEngine1
+    PyEnvironment = PyEmbeddedEnvironment1
+    ManagerKind = pip
+    BeforeInstall = PyTorch1BeforeInstall
+    Left = 456
+    Top = 320
+  end
+  object Transformers1: TTransformers
+    PythonEngine = PythonEngine1
+    PyEnvironment = PyEmbeddedEnvironment1
+    ManagerKind = pip
+    BeforeInstall = Transformers1BeforeInstall
+    Left = 456
+    Top = 376
+  end
+end
