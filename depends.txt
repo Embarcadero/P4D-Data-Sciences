@@ -1,0 +1,3 @@
+https://github.com/Embarcadero/python4delphi,..\Python4Delphi
+https://github.com/Embarcadero/PythonEnvironments,..\PythonEnvironments
+https://github.com/Embarcadero/Lightweight-Python-Wrappers,..\Lightweight-Python-Wrappers
