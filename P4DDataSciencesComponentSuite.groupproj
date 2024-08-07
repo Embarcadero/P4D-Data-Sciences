@@ -3,6 +3,42 @@
         <ProjectGuid>{1F3D0B72-75EA-4ACB-8DEC-AB9522D130F3}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
+        <Projects Include="..\python4delphi\Packages\Delphi\Delphi 10.4+\Python.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\python4delphi\Packages\Delphi\Delphi 10.4+\PythonVcl.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\python4delphi\Packages\Delphi\Delphi 10.4+\PythonFmx.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\python4delphi\Packages\Delphi\Delphi 10.4+\dclPython.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\python4delphi\Packages\Delphi\Delphi 10.4+\dclPythonVcl.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\python4delphi\Packages\Delphi\Delphi 10.4+\dclPythonFmx.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\PythonEnvironments\packages\P4DTools.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\PythonEnvironments\packages\P4DEnvironment.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\PythonEnvironments\packages\dclP4DEnvironmentProject.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\PythonEnvironments\packages\dclP4DEnvironment.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\Lightweight-Python-Wrappers\packages\P4DPyPackage.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\Lightweight-Python-Wrappers\packages\dclP4DPyPackage.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="src\MatplotLib\P4DMatplotLib.dproj">
             <Dependencies/>
         </Projects>
@@ -77,6 +113,114 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
+    <Target Name="Python">
+        <MSBuild Projects="..\python4delphi\Packages\Delphi\Delphi 10.4+\Python.dproj"/>
+    </Target>
+    <Target Name="Python:Clean">
+        <MSBuild Projects="..\python4delphi\Packages\Delphi\Delphi 10.4+\Python.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Python:Make">
+        <MSBuild Projects="..\python4delphi\Packages\Delphi\Delphi 10.4+\Python.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PythonVcl">
+        <MSBuild Projects="..\python4delphi\Packages\Delphi\Delphi 10.4+\PythonVcl.dproj"/>
+    </Target>
+    <Target Name="PythonVcl:Clean">
+        <MSBuild Projects="..\python4delphi\Packages\Delphi\Delphi 10.4+\PythonVcl.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PythonVcl:Make">
+        <MSBuild Projects="..\python4delphi\Packages\Delphi\Delphi 10.4+\PythonVcl.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PythonFmx">
+        <MSBuild Projects="..\python4delphi\Packages\Delphi\Delphi 10.4+\PythonFmx.dproj"/>
+    </Target>
+    <Target Name="PythonFmx:Clean">
+        <MSBuild Projects="..\python4delphi\Packages\Delphi\Delphi 10.4+\PythonFmx.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PythonFmx:Make">
+        <MSBuild Projects="..\python4delphi\Packages\Delphi\Delphi 10.4+\PythonFmx.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclPython">
+        <MSBuild Projects="..\python4delphi\Packages\Delphi\Delphi 10.4+\dclPython.dproj"/>
+    </Target>
+    <Target Name="dclPython:Clean">
+        <MSBuild Projects="..\python4delphi\Packages\Delphi\Delphi 10.4+\dclPython.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclPython:Make">
+        <MSBuild Projects="..\python4delphi\Packages\Delphi\Delphi 10.4+\dclPython.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclPythonVcl">
+        <MSBuild Projects="..\python4delphi\Packages\Delphi\Delphi 10.4+\dclPythonVcl.dproj"/>
+    </Target>
+    <Target Name="dclPythonVcl:Clean">
+        <MSBuild Projects="..\python4delphi\Packages\Delphi\Delphi 10.4+\dclPythonVcl.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclPythonVcl:Make">
+        <MSBuild Projects="..\python4delphi\Packages\Delphi\Delphi 10.4+\dclPythonVcl.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclPythonFmx">
+        <MSBuild Projects="..\python4delphi\Packages\Delphi\Delphi 10.4+\dclPythonFmx.dproj"/>
+    </Target>
+    <Target Name="dclPythonFmx:Clean">
+        <MSBuild Projects="..\python4delphi\Packages\Delphi\Delphi 10.4+\dclPythonFmx.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclPythonFmx:Make">
+        <MSBuild Projects="..\python4delphi\Packages\Delphi\Delphi 10.4+\dclPythonFmx.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="P4DTools">
+        <MSBuild Projects="..\PythonEnvironments\packages\P4DTools.dproj"/>
+    </Target>
+    <Target Name="P4DTools:Clean">
+        <MSBuild Projects="..\PythonEnvironments\packages\P4DTools.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="P4DTools:Make">
+        <MSBuild Projects="..\PythonEnvironments\packages\P4DTools.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="P4DEnvironment">
+        <MSBuild Projects="..\PythonEnvironments\packages\P4DEnvironment.dproj"/>
+    </Target>
+    <Target Name="P4DEnvironment:Clean">
+        <MSBuild Projects="..\PythonEnvironments\packages\P4DEnvironment.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="P4DEnvironment:Make">
+        <MSBuild Projects="..\PythonEnvironments\packages\P4DEnvironment.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclP4DEnvironmentProject">
+        <MSBuild Projects="..\PythonEnvironments\packages\dclP4DEnvironmentProject.dproj"/>
+    </Target>
+    <Target Name="dclP4DEnvironmentProject:Clean">
+        <MSBuild Projects="..\PythonEnvironments\packages\dclP4DEnvironmentProject.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclP4DEnvironmentProject:Make">
+        <MSBuild Projects="..\PythonEnvironments\packages\dclP4DEnvironmentProject.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclP4DEnvironment">
+        <MSBuild Projects="..\PythonEnvironments\packages\dclP4DEnvironment.dproj"/>
+    </Target>
+    <Target Name="dclP4DEnvironment:Clean">
+        <MSBuild Projects="..\PythonEnvironments\packages\dclP4DEnvironment.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclP4DEnvironment:Make">
+        <MSBuild Projects="..\PythonEnvironments\packages\dclP4DEnvironment.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="P4DPyPackage">
+        <MSBuild Projects="..\Lightweight-Python-Wrappers\packages\P4DPyPackage.dproj"/>
+    </Target>
+    <Target Name="P4DPyPackage:Clean">
+        <MSBuild Projects="..\Lightweight-Python-Wrappers\packages\P4DPyPackage.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="P4DPyPackage:Make">
+        <MSBuild Projects="..\Lightweight-Python-Wrappers\packages\P4DPyPackage.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dclP4DPyPackage">
+        <MSBuild Projects="..\Lightweight-Python-Wrappers\packages\dclP4DPyPackage.dproj"/>
+    </Target>
+    <Target Name="dclP4DPyPackage:Clean">
+        <MSBuild Projects="..\Lightweight-Python-Wrappers\packages\dclP4DPyPackage.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dclP4DPyPackage:Make">
+        <MSBuild Projects="..\Lightweight-Python-Wrappers\packages\dclP4DPyPackage.dproj" Targets="Make"/>
+    </Target>
     <Target Name="P4DMatplotLib">
         <MSBuild Projects="src\MatplotLib\P4DMatplotLib.dproj"/>
     </Target>
@@ -276,13 +420,219 @@
         <MSBuild Projects="src\Keras\dclP4DKeras.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="P4DMatplotLib;P4DNLTK;P4DNumPy;P4DOpenCV;P4DPyTorch;P4DScikitLearn;P4DTensorFlow;P4DSciPy;P4DPandas;P4DONNXRuntime;P4DKeras;dclP4DMatplotLib;dclP4DNLTK;dclP4DONNXRuntime;dclP4DSciPy;dclP4DNumPy;dclP4DScikitLearn;dclP4DPyTorch;dclP4DOpenCV;dclP4DTensorFlow;dclP4DPandas;dclP4DKeras"/>
+        <CallTarget Targets="Python;PythonVcl;PythonFmx;dclPython;dclPythonVcl;dclPythonFmx;P4DTools;P4DEnvironment;dclP4DEnvironmentProject;dclP4DEnvironment;P4DPyPackage;dclP4DPyPackage;P4DMatplotLib;P4DNLTK;P4DNumPy;P4DOpenCV;P4DPyTorch;P4DScikitLearn;P4DTensorFlow;P4DSciPy;P4DPandas;P4DONNXRuntime;P4DKeras;dclP4DMatplotLib;dclP4DNLTK;dclP4DONNXRuntime;dclP4DSciPy;dclP4DNumPy;dclP4DScikitLearn;dclP4DPyTorch;dclP4DOpenCV;dclP4DTensorFlow;dclP4DPandas;dclP4DKeras"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="P4DMatplotLib:Clean;P4DNLTK:Clean;P4DNumPy:Clean;P4DOpenCV:Clean;P4DPyTorch:Clean;P4DScikitLearn:Clean;P4DTensorFlow:Clean;P4DSciPy:Clean;P4DPandas:Clean;P4DONNXRuntime:Clean;P4DKeras:Clean;dclP4DMatplotLib:Clean;dclP4DNLTK:Clean;dclP4DONNXRuntime:Clean;dclP4DSciPy:Clean;dclP4DNumPy:Clean;dclP4DScikitLearn:Clean;dclP4DPyTorch:Clean;dclP4DOpenCV:Clean;dclP4DTensorFlow:Clean;dclP4DPandas:Clean;dclP4DKeras:Clean"/>
+        <CallTarget Targets="Python:Clean;PythonVcl:Clean;PythonFmx:Clean;dclPython:Clean;dclPythonVcl:Clean;dclPythonFmx:Clean;P4DTools:Clean;P4DEnvironment:Clean;dclP4DEnvironmentProject:Clean;dclP4DEnvironment:Clean;P4DPyPackage:Clean;dclP4DPyPackage:Clean;P4DMatplotLib:Clean;P4DNLTK:Clean;P4DNumPy:Clean;P4DOpenCV:Clean;P4DPyTorch:Clean;P4DScikitLearn:Clean;P4DTensorFlow:Clean;P4DSciPy:Clean;P4DPandas:Clean;P4DONNXRuntime:Clean;P4DKeras:Clean;dclP4DMatplotLib:Clean;dclP4DNLTK:Clean;dclP4DONNXRuntime:Clean;dclP4DSciPy:Clean;dclP4DNumPy:Clean;dclP4DScikitLearn:Clean;dclP4DPyTorch:Clean;dclP4DOpenCV:Clean;dclP4DTensorFlow:Clean;dclP4DPandas:Clean;dclP4DKeras:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="P4DMatplotLib:Make;P4DNLTK:Make;P4DNumPy:Make;P4DOpenCV:Make;P4DPyTorch:Make;P4DScikitLearn:Make;P4DTensorFlow:Make;P4DSciPy:Make;P4DPandas:Make;P4DONNXRuntime:Make;P4DKeras:Make;dclP4DMatplotLib:Make;dclP4DNLTK:Make;dclP4DONNXRuntime:Make;dclP4DSciPy:Make;dclP4DNumPy:Make;dclP4DScikitLearn:Make;dclP4DPyTorch:Make;dclP4DOpenCV:Make;dclP4DTensorFlow:Make;dclP4DPandas:Make;dclP4DKeras:Make"/>
+        <CallTarget Targets="Python:Make;PythonVcl:Make;PythonFmx:Make;dclPython:Make;dclPythonVcl:Make;dclPythonFmx:Make;P4DTools:Make;P4DEnvironment:Make;dclP4DEnvironmentProject:Make;dclP4DEnvironment:Make;P4DPyPackage:Make;dclP4DPyPackage:Make;P4DMatplotLib:Make;P4DNLTK:Make;P4DNumPy:Make;P4DOpenCV:Make;P4DPyTorch:Make;P4DScikitLearn:Make;P4DTensorFlow:Make;P4DSciPy:Make;P4DPandas:Make;P4DONNXRuntime:Make;P4DKeras:Make;dclP4DMatplotLib:Make;dclP4DNLTK:Make;dclP4DONNXRuntime:Make;dclP4DSciPy:Make;dclP4DNumPy:Make;dclP4DScikitLearn:Make;dclP4DPyTorch:Make;dclP4DOpenCV:Make;dclP4DTensorFlow:Make;dclP4DPandas:Make;dclP4DKeras:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+    <ItemGroup Condition="'$(BuildGroup)'=='Complete'">
+        <BuildGroupProject Include="src\NumPy\P4DNumPy.dproj">
+            <ProjectGuid>{20D31952-9D19-4788-8ACB-8168A0FDB6B8}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Android;Android64;Win32;Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="src\TensorFlow\dclP4DTensorFlow.dproj">
+            <ProjectGuid>{CCFDA41F-5004-4E54-997D-5967D19564F7}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="..\PythonEnvironments\packages\P4DEnvironment.dproj">
+            <ProjectGuid>{4A75F3AF-14CB-4FCD-8871-BD7A6A516746}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Android;Android64;Win32;Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="..\python4delphi\Packages\Delphi\Delphi 10.4+\dclPythonVcl.dproj">
+            <ProjectGuid>{48DDC28A-E154-4CA0-864A-30EB8C4CCBB3}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="src\Keras\dclP4DKeras.dproj">
+            <ProjectGuid>{C24AE46D-E88C-435B-A036-71E8B54FBFFD}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="src\Pandas\P4DPandas.dproj">
+            <ProjectGuid>{00AAA674-A37C-4D57-AEFB-572A86F78BF3}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Android;Android64;Win32;Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="src\NLTK\P4DNLTK.dproj">
+            <ProjectGuid>{245E398C-500E-4121-BF64-4D65C73AE5D5}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Android;Android64;Win32;Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="src\PyTorch\P4DPyTorch.dproj">
+            <ProjectGuid>{2CD8C684-B2D0-423B-B443-4B90EAE59D97}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Android;Android64;Win32;Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="..\python4delphi\Packages\Delphi\Delphi 10.4+\dclPython.dproj">
+            <ProjectGuid>{D9AB994C-54A3-4E76-81C8-6D0BB035A091}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="..\PythonEnvironments\packages\dclP4DEnvironmentProject.dproj">
+            <ProjectGuid>{A0C3B125-8966-45E1-B53F-102138354995}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="..\python4delphi\Packages\Delphi\Delphi 10.4+\PythonVcl.dproj">
+            <ProjectGuid>{D8908301-393C-4CFA-8842-4948A9935E21}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Win32;Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="..\PythonEnvironments\packages\dclP4DEnvironment.dproj">
+            <ProjectGuid>{369DD663-06BC-4D4D-903C-DDC451467D9E}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="src\SciPy\dclP4DSciPy.dproj">
+            <ProjectGuid>{AF6B8D9C-3D2D-48D6-BDE5-A9538A3FF0F1}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="src\Pandas\dclP4DPandas.dproj">
+            <ProjectGuid>{444BDE9E-4B49-4D20-91D1-E707615069FC}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="..\python4delphi\Packages\Delphi\Delphi 10.4+\dclPythonFmx.dproj">
+            <ProjectGuid>{E057921E-25DB-426E-8090-FE3F428894FF}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="src\MatplotLib\dclP4DMatplotLib.dproj">
+            <ProjectGuid>{B53E1A32-9471-4362-B9D7-60FF0E17FC89}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="src\OpenCV\dclP4DOpenCV.dproj">
+            <ProjectGuid>{06D62157-0E57-4940-925B-715687CBF0AD}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="src\SciPy\P4DSciPy.dproj">
+            <ProjectGuid>{FD6704E0-DBB2-4878-B361-6ED042A7D947}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Android;Android64;Win32;Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="src\MatplotLib\P4DMatplotLib.dproj">
+            <ProjectGuid>{17CAA038-FA64-48B3-9441-BD6A5BFBD80D}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Android;Android64;Win32;Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="..\Lightweight-Python-Wrappers\packages\P4DPyPackage.dproj">
+            <ProjectGuid>{553D0C2F-85EA-40B2-9680-0A5061540238}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Android;Android64;Win32;Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="..\python4delphi\Packages\Delphi\Delphi 10.4+\PythonFmx.dproj">
+            <ProjectGuid>{513BF750-373D-4C95-A672-78CA8DDF3F63}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Android;Android64;Win32;Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="src\ScikitLearn\dclP4DScikitLearn.dproj">
+            <ProjectGuid>{B8B30567-EF48-4563-88DD-CCC56D22DF4F}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="src\OpenCV\P4DOpenCV.dproj">
+            <ProjectGuid>{9B3A2E4B-4EE2-43CF-B898-788DE36D85B5}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Android;Android64;Win32;Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="src\PyTorch\dclP4DPyTorch.dproj">
+            <ProjectGuid>{EE4B450F-7C20-400E-8149-C01F88A3F480}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="..\Lightweight-Python-Wrappers\packages\dclP4DPyPackage.dproj">
+            <ProjectGuid>{C4C32D67-6742-44C6-A714-965E23585BA2}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="src\ONNXRuntime\P4DONNXRuntime.dproj">
+            <ProjectGuid>{258F41A6-CACC-4518-B0AB-B30F914D000E}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Android;Android64;Win32;Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="src\NumPy\dclP4DNumPy.dproj">
+            <ProjectGuid>{E3059032-7656-430C-89A2-B389B2151E88}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="src\TensorFlow\P4DTensorFlow.dproj">
+            <ProjectGuid>{4E7B475F-0116-4245-98E3-9CC273DD2A31}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Android;Android64;Win32;Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="src\Keras\P4DKeras.dproj">
+            <ProjectGuid>{C351552D-700D-47B9-88D4-3EE9C4ADCED1}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Android;Android64;Win32;Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="..\python4delphi\Packages\Delphi\Delphi 10.4+\Python.dproj">
+            <ProjectGuid>{018AAA56-F5BD-4A04-BCCA-A0043EAAA5CE}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Android;Android64;Win32;Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="src\NLTK\dclP4DNLTK.dproj">
+            <ProjectGuid>{B47E9E59-70B7-46BF-8790-244D93DC224F}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="..\PythonEnvironments\packages\P4DTools.dproj">
+            <ProjectGuid>{E39CABA2-57A4-49D6-AA1E-35E9A11063F1}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Android;Android64;Win32;Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="src\ONNXRuntime\dclP4DONNXRuntime.dproj">
+            <ProjectGuid>{78EAC030-2BB7-45A7-BD0E-96B21C0E4489}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Win32</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+        <BuildGroupProject Include="src\ScikitLearn\P4DScikitLearn.dproj">
+            <ProjectGuid>{95F97293-A460-498E-ADA8-F2FC54B65789}</ProjectGuid>
+            <Configurations>Debug;Release</Configurations>
+            <Platforms>Android;Android64;Win32;Win64</Platforms>
+            <Enabled>True</Enabled>
+        </BuildGroupProject>
+    </ItemGroup>
 </Project>
