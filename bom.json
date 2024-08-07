@@ -1,0 +1,25 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.4",
+  "version": 1,
+  "components": [
+    {
+      "type": "library",
+      "name": "python4delphi",
+      "version": "latest",
+      "purl": "pkg:github/Embarcadero/python4delphi"
+    },
+    {
+      "type": "library",
+      "name": "PythonEnvironments",
+      "version": "latest",
+      "purl": "pkg:github/Embarcadero/PythonEnvironments"
+    },
+    {
+      "type": "library",
+      "name": "Lightweight-Python-Wrappers",
+      "version": "latest",
+      "purl": "pkg:github/Embarcadero/Lightweight-Python-Wrappers"
+    }
+  ]
+}
